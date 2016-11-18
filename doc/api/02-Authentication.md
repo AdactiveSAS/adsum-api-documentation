@@ -55,7 +55,7 @@ concatenation of the nonce, created timestamp, and the API secret. Please note t
 
 ### Requirements
 
-First of all you you to retrive both ID and key device from Studio Management Page.
+First of all you you to retrieve both ID and key device from Studio Management Page.
 
 - The identifier will be represented by the `id` variable.
 - The key will be represented by the `key` variable.
