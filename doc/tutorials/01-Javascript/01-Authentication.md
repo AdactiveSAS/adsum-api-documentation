@@ -73,7 +73,7 @@ class Client {
         xhr.onload = () => {
             const rawData = xhr.responseText;
             
-            callback(JSON.parse(rawData));
+            callback(JSON.parse(rawData), xhr);
         }
         
         xhr.send();
@@ -98,9 +98,9 @@ const callback = (site) => {
 client.get(url, callback);
 ```
 
-### Console output
+### Output
 ```javascript
-{
+> {
     "logo": {
         "name": "fileoELgBd.png",
         "provider_name": "sonata.media.provider.file",
