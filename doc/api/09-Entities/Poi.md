@@ -1,6 +1,10 @@
-#Poi
+# Poi
 
-##Model
+## Model
+
+> TODO: talk about poi inheritance
+
+### Poi <abstract>
 | Field           | Type   | Readonly            | Nullable            | Translatable        | Description |
 |-----------------|--------|---------------------|---------------------|---------------------|-------------|
 | id              | int    | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
@@ -26,6 +30,190 @@
 | mediaLinks[]    |        |                     |                     |                     |             |
 | translations    |        |                     |                     |                     |             |
 | translations[]  |        |                     |                     |                     |             |
+
+### Discriminator Map
+
+Poi#type
+
+Poi#type === "person" ==> Person
+Poi#type === "store" ==> Store
+Poi#type === "product" ==> Product
+Poi#type === "exhibitor" ==> Exhibitor
+Poi#type === "room" ==> Room
+Poi#type === "service" ==> Service
+
+
+### Service
+
+## Model
+| Field    | Type  | Readonly | Nullable | Translatable | Description |
+|----------|-------|----------|----------|--------------|-------------|
+| schedule | array |          |          |              |             |
+
+
+### Exhibitor
+
+## Model
+| Field | Type   | Readonly | Nullable | Translatable | Description |
+|-------|--------|----------|----------|--------------|-------------|
+| phone | string |          |          |              |             |
+| url   | string |          |          |              |             |
+
+###Picto
+
+## Model
+| Field       | Type   | Readonly | Nullable | Translatable | Description |
+|-------------|--------|----------|----------|--------------|-------------|
+| width       | int    |          |          |              |             |
+| height      | int    |          |          |              |             |
+| originalMd5 | string |          |          |              |             |
+
+### Store
+
+## Model
+| Field       | Type   | Readonly | Nullable | Translatable | Description |
+|-------------|--------|----------|----------|--------------|-------------|
+| priority    | int    |          |          |              |             |
+| openingTime | string |          |          |              |             |
+| phone       | string |          |          |              |             |
+| url         | string |          |          |              |             |
+
+### Room
+
+## Model
+| Field     | Type   | Readonly | Nullable | Translatable | Description |
+|-----------|--------|----------|----------|--------------|-------------|
+| reference | string |          |          |              |             |
+| kind      | string |          |          |              |             |
+| capacity  | int    |          |          |              |             |
+| phone     | string |          |          |              |             |
+
+###Person
+
+## Model
+| Field       | Type   | Readonly | Nullable | Translatable | Description |
+|-------------|--------|----------|----------|--------------|-------------|
+| firstname   | string |          |          |              |             |
+| lastname    | string |          |          |              |             |
+| deskphone   | string |          |          |              |             |
+| mobilephone | string |          |          |              |             |
+
+### Feature
+
+## Model
+| Field        | Type   | Readonly | Nullable | Translatable | Description |
+|--------------|--------|----------|----------|--------------|-------------|
+| id           | int    |          |          |              |             |
+| name         | string |          |          |              |             |
+| values       | array  |          |          |              |             |
+| parentLinks  | array  |          |          |              |             |
+| childLinks   | array  |          |          |              |             |
+| translations | array  |          |          |              |             |
+
+### Label
+
+## Model
+| Field           | Type   | Readonly | Nullable | Translatable | Description |
+|-----------------|--------|----------|----------|--------------|-------------|
+| font            | string |          |          |              |             |
+| alignment       | string |          |          |              |             |
+| fontSize        | int    |          |          |              |             |
+| fontColor       | string |          |          |              |             |
+| backgroundColor | string |          |          |              |             |
+| label           | string |          |          |              |             |
+
+### FeatureValue
+
+## Model
+| Field        | Type    | Readonly | Nullable | Translatable | Description |
+|--------------|---------|----------|----------|--------------|-------------|
+| id           | int     |          |          |              |             |
+| name         | string  |          |          |              |             |
+| rank         | string  |          |          |              |             |
+| unit         | string  |          |          |              |             |
+| feature      | feature |          |          |              |             |
+| products     | array   |          |          |              |             |
+| products[]   |         |          |          |              |             |
+| translations |         |          |          |              |             |
+
+### CustomObjects
+
+## Model
+| Field            | Type    | Readonly          | Nullable            | Translatable        | Description |
+|------------------|---------|-------------------|---------------------|---------------------|-------------|
+| id               | int     | ![true][trueIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
+| offset           | vector  |                   |                     |                     |             |
+| autoscale        | boolean |                   |                     |                     |             |
+| rotation         | float   |                   |                     |                     |             |
+| priority         | int     |                   |                     |                     |             |
+| orientationMode  | string  |                   |                     |                     |             |
+| permanentDisplay | boolean |                   |                     |                     |             |
+| place            | place   |                   |                     |                     |             |
+| poi              | poi     |                   |                     |                     |             |
+| translation      | array   |                   |                     |                     |             |
+
+### Tag
+
+## Model
+| Field          | Type                         | Readonly | Nullable | Translatable | Description |
+|----------------|------------------------------|----------|----------|--------------|-------------|
+| id             | int                          |          |          |              |             |
+| name           | string                       |          |          |              |             |
+| categories     | array                        |          |          |              |             |
+| pois           | array                        |          |          |              |             |
+| pois[]         | poi                          |          |          |              |             |
+| playlists      | array                        |          |          |              |             |
+| playlists[]    | playlist                     |          |          |              |             |
+| medias         | array                        |          |          |              |             |
+| medias[]       | media                        |          |          |              |             |
+| translations   | array                        |          |          |              |             |
+| translations[] | personalTranslationInterface |          |          |              |             |
+
+### Category
+
+## Model
+| Field          | Type     | Readonly | Nullable | Translatable | Description |
+|----------------|----------|----------|----------|--------------|-------------|
+| id             | int      |          |          |              |             |
+| name           | string   |          |          |              |             |
+| type           | string   |          |          |              |             |
+| color          | string   |          |          |              |             |
+| rank           | int      |          |          |              |             |
+| parameters[]   | string[] |          |          |              |             |
+| pois           | array    |          |          |              |             |
+| pois[]         |          |          |          |              |             |
+| tags           | array    |          |          |              |             |
+| tags[]         |          |          |          |              |             |
+| parentLinks    | array    |          |          |              |             |
+| parentLinks[]  |          |          |          |              |             |
+| childLinks     | array    |          |          |              |             |
+| childLinks[]   |          |          |          |              |             |
+| translations   | array    |          |          |              |             |
+| translations[] |          |          |          |              |             |
+
+### Product
+
+## Model
+| Field             | Type   | Readonly | Nullable | Translatable | Description |
+|-------------------|--------|----------|----------|--------------|-------------|
+| priority          | int    |          |          |              |             |
+| reference         | string |          |          |              |             |
+| fullName          | string |          |          |              |             |
+| description1      | string |          |          |              |             |
+| description2      | string |          |          |              |             |
+| fullDdescription  | string |          |          |              |             |
+| brandName         | string |          |          |              |             |
+| url               | string |          |          |              |             |
+| status            | string |          |          |              |             |
+| price             | float  |          |          |              |             |
+| currency          | string |          |          |              |             |
+| rating            | float  |          |          |              |             |
+| ratingCount       | int    |          |          |              |             |
+| remainingQuantity | int    |          |          |              |             |
+| discountValue     | int    |          |          |              |             |
+| ean               | string |          |          |              |             |
+| featureValues     | array  |          |          |              |             |
+| featureValues[]   |        |          |          |              |             |
 
 
 
