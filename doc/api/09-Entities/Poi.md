@@ -30,7 +30,7 @@
 | mediaLinks[]    |        |                     |                     |                     |             |
 | translations    |        |                     |                     |                     |             |
 | translations[]  |        |                     |                     |                     |             |
-
+| new             | bool   |                     |                     |                     |             |
 ### Discriminator Map
 
 Poi#type
