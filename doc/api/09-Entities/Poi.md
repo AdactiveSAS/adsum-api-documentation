@@ -2,7 +2,7 @@
 
 ## Model
 
-> TODO: talk about poi inheritance
+> TODO: talk about poi inheritance Poi is the base class and all the following are derived from it
 
 ### Poi <abstract>
 | Field           | Type   | Readonly            | Nullable            | Translatable        | Description |
@@ -33,35 +33,29 @@
 | new             | bool   |                     |                     |                     |             |
 ### Discriminator Map
 
-Poi#type
+##### Poi#type
 
-Poi#type === "person" ==> Person
-Poi#type === "store" ==> Store
-Poi#type === "product" ==> Product
-Poi#type === "exhibitor" ==> Exhibitor
-Poi#type === "room" ==> Room
-Poi#type === "service" ==> Service
+Poi#type === "person" ==> Person  
+Poi#type === "store" ==> Store  
+Poi#type === "product" ==> Product  
+Poi#type === "exhibitor" ==> Exhibitor  
+Poi#type === "room" ==> Room  
+Poi#type === "service" ==> Service  
 
 
 ### Service
-
-## Model
 | Field    | Type  | Readonly | Nullable | Translatable | Description |
 |----------|-------|----------|----------|--------------|-------------|
 | schedule | array |          |          |              |             |
 
 
 ### Exhibitor
-
-## Model
 | Field | Type   | Readonly | Nullable | Translatable | Description |
 |-------|--------|----------|----------|--------------|-------------|
 | phone | string |          |          |              |             |
 | url   | string |          |          |              |             |
 
 ###Picto
-
-## Model
 | Field       | Type   | Readonly | Nullable | Translatable | Description |
 |-------------|--------|----------|----------|--------------|-------------|
 | width       | int    |          |          |              |             |
@@ -69,8 +63,6 @@ Poi#type === "service" ==> Service
 | originalMd5 | string |          |          |              |             |
 
 ### Store
-
-## Model
 | Field       | Type   | Readonly | Nullable | Translatable | Description |
 |-------------|--------|----------|----------|--------------|-------------|
 | priority    | int    |          |          |              |             |
@@ -79,8 +71,6 @@ Poi#type === "service" ==> Service
 | url         | string |          |          |              |             |
 
 ### Room
-
-## Model
 | Field     | Type   | Readonly | Nullable | Translatable | Description |
 |-----------|--------|----------|----------|--------------|-------------|
 | reference | string |          |          |              |             |
@@ -88,9 +78,7 @@ Poi#type === "service" ==> Service
 | capacity  | int    |          |          |              |             |
 | phone     | string |          |          |              |             |
 
-###Person
-
-## Model
+### Person
 | Field       | Type   | Readonly | Nullable | Translatable | Description |
 |-------------|--------|----------|----------|--------------|-------------|
 | firstname   | string |          |          |              |             |
@@ -99,8 +87,6 @@ Poi#type === "service" ==> Service
 | mobilephone | string |          |          |              |             |
 
 ### Feature
-
-## Model
 | Field        | Type   | Readonly | Nullable | Translatable | Description |
 |--------------|--------|----------|----------|--------------|-------------|
 | id           | int    |          |          |              |             |
@@ -111,8 +97,6 @@ Poi#type === "service" ==> Service
 | translations | array  |          |          |              |             |
 
 ### Label
-
-## Model
 | Field           | Type   | Readonly | Nullable | Translatable | Description |
 |-----------------|--------|----------|----------|--------------|-------------|
 | font            | string |          |          |              |             |
@@ -123,8 +107,6 @@ Poi#type === "service" ==> Service
 | label           | string |          |          |              |             |
 
 ### FeatureValue
-
-## Model
 | Field        | Type    | Readonly | Nullable | Translatable | Description |
 |--------------|---------|----------|----------|--------------|-------------|
 | id           | int     |          |          |              |             |
@@ -137,8 +119,6 @@ Poi#type === "service" ==> Service
 | translations |         |          |          |              |             |
 
 ### CustomObjects
-
-## Model
 | Field            | Type    | Readonly          | Nullable            | Translatable        | Description |
 |------------------|---------|-------------------|---------------------|---------------------|-------------|
 | id               | int     | ![true][trueIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
@@ -153,8 +133,6 @@ Poi#type === "service" ==> Service
 | translation      | array   |                   |                     |                     |             |
 
 ### Tag
-
-## Model
 | Field          | Type                         | Readonly | Nullable | Translatable | Description |
 |----------------|------------------------------|----------|----------|--------------|-------------|
 | id             | int                          |          |          |              |             |
@@ -170,8 +148,6 @@ Poi#type === "service" ==> Service
 | translations[] | personalTranslationInterface |          |          |              |             |
 
 ### Category
-
-## Model
 | Field          | Type     | Readonly | Nullable | Translatable | Description |
 |----------------|----------|----------|----------|--------------|-------------|
 | id             | int      |          |          |              |             |
@@ -192,8 +168,6 @@ Poi#type === "service" ==> Service
 | translations[] |          |          |          |              |             |
 
 ### Product
-
-## Model
 | Field             | Type   | Readonly | Nullable | Translatable | Description |
 |-------------------|--------|----------|----------|--------------|-------------|
 | priority          | int    |          |          |              |             |
@@ -217,7 +191,7 @@ Poi#type === "service" ==> Service
 
 
 
-## CRUD
+### CRUD
 | CRUD   | Http Verb | Route      | Description      |
 |--------|-----------|------------|------------------|
 

@@ -1,8 +1,10 @@
 # Media
 
+## Model
+
 >TODO talk about media inheritance
 
-## Model
+### Media <abstract>
 | Field           | Type              | Readonly            | Nullable            | Translatable        | Description |
 |-----------------|-------------------|---------------------|---------------------|---------------------|-------------|
 | id              | int               | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
@@ -20,26 +22,19 @@
 | translations[]  | mediaTranslation  |                     |                     |                     |             |
 
 ### Discriminator Map
-
-Media#type
+### Media#type
 
 ### MediaImage
 
-
 ### MediaVideo
 
-
 ### MediaUrl
-
-## Model
 | Field | Type   | Readonly | Nullable | Translatable | Description |
 |-------|--------|----------|----------|--------------|-------------|
 | link  | string |          |          |              |             |
 
 
 ### MediaPdf
-
-## Model
 | Field      | Type   | Readonly | Nullable | Translatable | Description |
 |------------|--------|----------|----------|--------------|-------------|
 | format     | string |          |          |              |             |
@@ -48,8 +43,6 @@ Media#type
 
 
 ### MediaText
-
-## Model
 | Field      | Type   | Readonly | Nullable | Translatable | Description |
 |------------|--------|----------|----------|--------------|-------------|
 | format     | string |          |          |              |             |
@@ -58,8 +51,6 @@ Media#type
 
 
 ### Playlist
-
-## Model
 | Field        | Type               | Readonly | Nullable | Translatable | Description |
 |--------------|--------------------|----------|----------|--------------|-------------|
 | id           | int                |          |          |              |             |
@@ -74,8 +65,6 @@ Media#type
 
 
 ### Movie
-
-## Model
 | Field            | Type     | Readonly | Nullable | Translatable | Description |
 |------------------|----------|----------|----------|--------------|-------------|
 | actors           | array    |          |          |              |             |
@@ -85,3 +74,8 @@ Media#type
 | director         | string   |          |          |              |             |
 | certification    | string   |          |          |              |             |
 | duration         | int      |          |          |              |             |
+
+
+[trueIcon]: https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png
+[falseIcon]: https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png
+[naIcon]: https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png
