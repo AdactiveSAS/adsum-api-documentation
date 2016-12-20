@@ -15,7 +15,7 @@ class Client {
     * @return {string}
     */
     static generateNonce(){
-        const cryptoObj = window.crypto || window.msCrypto; // pour IE 11
+        const cryptoObj = window.crypto || window.msCrypto; // IE 11
         
         const array = new Uint32Array(1);
         cryptoObj.getRandomValues(array);
@@ -72,11 +72,65 @@ class Client {
         
         xhr.onload = () => {
             const rawData = xhr.responseText;
+            const data = rawData ? JSON.parse(rawData) : null;
             
-            callback(JSON.parse(rawData), xhr);
-        }
+            callback(data, xhr);
+        };
         
         xhr.send();
+    }
+    
+    /**
+    * Do a basic HTTP POST request with authentication 
+    * Caution: Errors are not handled
+    *
+    * @param {string} url
+    * @param {object} data
+    * @param {function} callback
+    */
+    postJson(url, data, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        
+        xhr.setRequestHeader("Authorization", 'WSSE profile="UsernameToken"');
+        xhr.setRequestHeader("X-WSSE", this.getWsseHeader());
+        
+        // Set the Content-Type
+        xhr.setRequestHeader("Content-Type", "application/json");
+        
+        xhr.onload = () => {
+            const rawData = xhr.responseText;
+            const data = rawData ? JSON.parse(rawData) : null;
+            
+            callback(data, xhr);
+        };
+        
+        xhr.send(JSON.stringify(data));
+    }
+    
+    /**
+    * Do a basic HTTP POST request with authentication 
+    * Caution: Errors are not handled
+    *
+    * @param {string} url
+    * @param {FormData} data
+    * @param {function} callback
+    */
+    postForm(url, data, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        
+        xhr.setRequestHeader("Authorization", 'WSSE profile="UsernameToken"');
+        xhr.setRequestHeader("X-WSSE", this.getWsseHeader());
+        
+        xhr.onload = () => {
+            const rawData = xhr.responseText;
+            const data = rawData ? JSON.parse(rawData) : null;
+            
+            callback(data, xhr);
+        };
+        
+        xhr.send(data);
     }
 }
 ```

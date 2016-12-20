@@ -17,7 +17,7 @@ client.get(url, callback);
 support WSSE authentication.
 
 ### Output
-```javascript
+```
 > {
   "type": "store",
   "categories": [
@@ -115,7 +115,7 @@ client.get(url, handlePage);
 
 ### Output
 
-```javascript
+```
 > Page 1 loaded
 > Page 2 loaded
 > [
