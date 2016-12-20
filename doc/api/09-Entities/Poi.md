@@ -28,9 +28,8 @@
 | pictureLinks[]  |        |                     |                     |                     |             |
 | mediaLink       |        |                     |                     |                     |             |
 | mediaLinks[]    |        |                     |                     |                     |             |
-| translations    |        |                     |                     |                     |             |
-| translations[]  |        |                     |                     |                     |             |
 | new             | bool   |                     |                     |                     |             |
+
 ### Discriminator Map
 
 ##### Poi#type
@@ -54,13 +53,6 @@ Poi#type === "service" ==> Service
 |-------|--------|----------|----------|--------------|-------------|
 | phone | string |          |          |              |             |
 | url   | string |          |          |              |             |
-
-###Picto
-| Field       | Type   | Readonly | Nullable | Translatable | Description |
-|-------------|--------|----------|----------|--------------|-------------|
-| width       | int    |          |          |              |             |
-| height      | int    |          |          |              |             |
-| originalMd5 | string |          |          |              |             |
 
 ### Store
 | Field       | Type   | Readonly | Nullable | Translatable | Description |
@@ -86,87 +78,6 @@ Poi#type === "service" ==> Service
 | deskphone   | string |          |          |              |             |
 | mobilephone | string |          |          |              |             |
 
-### Feature
-| Field        | Type   | Readonly | Nullable | Translatable | Description |
-|--------------|--------|----------|----------|--------------|-------------|
-| id           | int    |          |          |              |             |
-| name         | string |          |          |              |             |
-| values       | array  |          |          |              |             |
-| parentLinks  | array  |          |          |              |             |
-| childLinks   | array  |          |          |              |             |
-| translations | array  |          |          |              |             |
-
-### Label
-| Field           | Type   | Readonly | Nullable | Translatable | Description |
-|-----------------|--------|----------|----------|--------------|-------------|
-| font            | string |          |          |              |             |
-| alignment       | string |          |          |              |             |
-| fontSize        | int    |          |          |              |             |
-| fontColor       | string |          |          |              |             |
-| backgroundColor | string |          |          |              |             |
-| label           | string |          |          |              |             |
-
-### FeatureValue
-| Field        | Type    | Readonly | Nullable | Translatable | Description |
-|--------------|---------|----------|----------|--------------|-------------|
-| id           | int     |          |          |              |             |
-| name         | string  |          |          |              |             |
-| rank         | string  |          |          |              |             |
-| unit         | string  |          |          |              |             |
-| feature      | feature |          |          |              |             |
-| products     | array   |          |          |              |             |
-| products[]   |         |          |          |              |             |
-| translations |         |          |          |              |             |
-
-### CustomObjects
-| Field            | Type    | Readonly          | Nullable            | Translatable        | Description |
-|------------------|---------|-------------------|---------------------|---------------------|-------------|
-| id               | int     | ![true][trueIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| offset           | vector  |                   |                     |                     |             |
-| autoscale        | boolean |                   |                     |                     |             |
-| rotation         | float   |                   |                     |                     |             |
-| priority         | int     |                   |                     |                     |             |
-| orientationMode  | string  |                   |                     |                     |             |
-| permanentDisplay | boolean |                   |                     |                     |             |
-| place            | place   |                   |                     |                     |             |
-| poi              | poi     |                   |                     |                     |             |
-| translation      | array   |                   |                     |                     |             |
-
-### Tag
-| Field          | Type                         | Readonly | Nullable | Translatable | Description |
-|----------------|------------------------------|----------|----------|--------------|-------------|
-| id             | int                          |          |          |              |             |
-| name           | string                       |          |          |              |             |
-| categories     | array                        |          |          |              |             |
-| pois           | array                        |          |          |              |             |
-| pois[]         | poi                          |          |          |              |             |
-| playlists      | array                        |          |          |              |             |
-| playlists[]    | playlist                     |          |          |              |             |
-| medias         | array                        |          |          |              |             |
-| medias[]       | media                        |          |          |              |             |
-| translations   | array                        |          |          |              |             |
-| translations[] | personalTranslationInterface |          |          |              |             |
-
-### Category
-| Field          | Type     | Readonly | Nullable | Translatable | Description |
-|----------------|----------|----------|----------|--------------|-------------|
-| id             | int      |          |          |              |             |
-| name           | string   |          |          |              |             |
-| type           | string   |          |          |              |             |
-| color          | string   |          |          |              |             |
-| rank           | int      |          |          |              |             |
-| parameters[]   | string[] |          |          |              |             |
-| pois           | array    |          |          |              |             |
-| pois[]         |          |          |          |              |             |
-| tags           | array    |          |          |              |             |
-| tags[]         |          |          |          |              |             |
-| parentLinks    | array    |          |          |              |             |
-| parentLinks[]  |          |          |          |              |             |
-| childLinks     | array    |          |          |              |             |
-| childLinks[]   |          |          |          |              |             |
-| translations   | array    |          |          |              |             |
-| translations[] |          |          |          |              |             |
-
 ### Product
 | Field             | Type   | Readonly | Nullable | Translatable | Description |
 |-------------------|--------|----------|----------|--------------|-------------|
@@ -189,9 +100,7 @@ Poi#type === "service" ==> Service
 | featureValues     | array  |          |          |              |             |
 | featureValues[]   |        |          |          |              |             |
 
-
-
-### CRUD
+## CRUD
 | CRUD   | Http Verb | Route      | Description      |
 |--------|-----------|------------|------------------|
 

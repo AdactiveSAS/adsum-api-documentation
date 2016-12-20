@@ -17,7 +17,7 @@ client.get(url, callback);
 support WSSE authentication.
 
 ### Output
-```javascript
+```
 > {
     "children": [],
     "client_id": "81",
@@ -81,7 +81,7 @@ client.get(url, handlePage);
 
 ### Output
 
-```javascript
+```
 > Page 1 loaded
 > Page 2 loaded
 > [

@@ -50,20 +50,6 @@
 | content    | string |          |          |              |             |
 
 
-### Playlist
-| Field        | Type               | Readonly | Nullable | Translatable | Description |
-|--------------|--------------------|----------|----------|--------------|-------------|
-| id           | int                |          |          |              |             |
-| name         | string             |          |          |              |             |
-| description  | string             |          |          |              |             |
-| parameters   | array              |          |          |              |             |
-| tags         | array              |          |          |              |             |
-| tags[]       | tag                |          |          |              |             |
-| mediaLinks   | array              |          |          |              |             |
-| mediaLinks[] | playlistMediaLinks |          |          |              |             |
-| translations |                    |          |          |              |             |
-
-
 ### Movie
 | Field            | Type     | Readonly | Nullable | Translatable | Description |
 |------------------|----------|----------|----------|--------------|-------------|
