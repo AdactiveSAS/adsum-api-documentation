@@ -1,5 +1,28 @@
 # Authentication
 
+We use WSSE in order to assure the security of your data. All identifications information can be found in your account here : http://adactive.com/help/docs/administration/get-device-credentials/
+
+
++ Objectiv-C Client
+Please refer to here : https://github.com/laiso/CocoaWSSE
+
++ Java Client
+Please refer to here : https://github.com/skrusche63/WSS-Client-for-Android
+
++ C++ Client
+Please refer to here :  https://github.com/chinthakagodawita/wsse-cpp
+
++ node Js client 
+Please refer to here :  https://github.com/bouzuya/node-wsse
+
+
+
+If you want to do it yourself please see below
+
+
+
+
+
 ## Requirements
 
 In this example, we will assume that you have installed the 
