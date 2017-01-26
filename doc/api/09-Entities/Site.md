@@ -1,60 +1,60 @@
 # Site
 
 ## CRUD
-| CRUD   | Http Verb | Route      | Description      |
-|--------|-----------|------------|------------------|
-| READ   | GET       | /site/{id} |                  |
-| UPDATE | POST      | /site/{id} |                  |
+| CRUD   | Http Verb | Route      | Description                         |
+|--------|-----------|------------|-------------------------------------|
+| READ   | GET       | /site/{id} | Retrieve a single Site from it's id |
+| UPDATE | POST      | /site/{id} | Update a single Site                |
 
 ## Model
-| Field                     | Type                | Readonly            | Nullable            | Translatable        | Description |
-|---------------------------|---------------------|---------------------|---------------------|---------------------|-------------|
-| address                   | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| city                      | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| client_id                 | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| cp                        | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| created_at                | datetime (ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-| description               | string              | ![false][falseIcon] | ![true][trueIcon]   | ![true][trueIcon]   |             |
-| direction                 | string              | ![false][falseIcon] | ![true][trueIcon]   | ![true][trueIcon]   |             |
-| email                     | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| gps_positions             | array               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| gps_positions[]           | object              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_positions[].altitude  | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_positions[].longitude | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_positions[].latitude  | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_positions[].x         | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_positions[].y         | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_positions[].z         | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_transform             | array               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| gps_transform[]           | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| gps_translate             | array               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| gps_translate[]           | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| id                        | int                 | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-| languages                 | array               | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| languages[]               | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| locale                    | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| logo                      | File#id             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| metadata                  | array               | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[]                | object              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[].key            | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[].type           | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[].value          | mixed               | ![n/a][naIcon]      | ![true][trueIcon]   | ![false][falseIcon] |             |
-| name                      | string              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| opening                   | string              | ![false][falseIcon] | ![true][trueIcon]   | ![true][trueIcon]   |             |
-| phone                     | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| signature                 | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| target_platforms          | array               | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| target_platforms[]        | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| version                   | int                 | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-| updated_at                | datetime(ISO 8601)  | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
+| Field                     | Type                | Readonly            | Nullable            | Translatable        | Description                                                                                                                                                               |
+|---------------------------|---------------------|---------------------|---------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| address                   | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Postal address                                                                                                                                                            |
+| city                      | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | City name                                                                                                                                                                 |
+| client_id                 | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | An arbitrary field used to store external identfier to match our own                                                                                                      |
+| cp                        | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Postal code                                                                                                                                                               |
+| created_at                | datetime (ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Create datetime                                                                                                                                                           |
+| description               | string              | ![false][falseIcon] | ![true][trueIcon]   | ![true][trueIcon]   | A field used to give general information about the Site                                                                                                                   |
+| direction                 | string              | ![false][falseIcon] | ![true][trueIcon]   | ![true][trueIcon]   | Information about how to go to the Site                                                                                                                                   |
+| email                     | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Contact email address of the Site                                                                                                                                         |
+| gps_positions             | array               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Array of gps positions references used to geolocalize the Site                                                                                                            |
+| gps_positions[]           | object              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                           |
+| gps_positions[].altitude  | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | The altitude of the point in real world                                                                                                                                   |
+| gps_positions[].longitude | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | The longitude of the point in real world                                                                                                                                  |
+| gps_positions[].latitude  | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | The latitude of the point in real world                                                                                                                                   |
+| gps_positions[].x         | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | The x coordinate in our 3D system                                                                                                                                         |
+| gps_positions[].y         | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | The y coordinate in our 3D system                                                                                                                                         |
+| gps_positions[].z         | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | The z coordinate in our 3D system                                                                                                                                         |
+| gps_transform             | array               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | 3*3 transformation matrix used to convert UTM system to 3D system                                                                                                         |
+| gps_transform[]           | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                           |
+| gps_translate             | array               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | 3D translation vector used to convert UTM system to 3D system                                                                                                             |
+| gps_translate[]           | float               | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                           |
+| id                        | int                 | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | The identifier                                                                                                                                                            |
+| languages                 | array               | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of available locales used in that Site. This means all translatable data may be available in each of theses languages.                                               |
+| languages[]               | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | One of supported locale: "en", "fr", "de", "it", "es", "zh", "ja", "ko", "da", "cs".  Need more ? Ask us.                                                                 |
+| locale                    | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Use to define the default locale to use on that Site. It must be one of Site#languages locale. May be null only if localization is not needed with empty languages array. |
+| logo                      | File#id             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | The File identifier that contains the logo image.                                                                                                                         |
+| metadata                  | array               | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | An array of metadatum used to store additional arbitrary data                                                                                                             |
+| metadata[]                | object              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                           |
+| metadata[].key            | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Metadatum unique key                                                                                                                                                      |
+| metadata[].type           | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Metadatum value type                                                                                                                                                      |
+| metadata[].value          | mixed               | ![n/a][naIcon]      | ![true][trueIcon]   | ![false][falseIcon] | Metadatum value                                                                                                                                                           |
+| name                      | string              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Name                                                                                                                                                                      |
+| opening                   | string              | ![false][falseIcon] | ![true][trueIcon]   | ![true][trueIcon]   | Openning hours                                                                                                                                                            |
+| phone                     | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Phone number                                                                                                                                                              |
+| signature                 | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Unique optional identifier used to reference that Site to be used in data import                                                                                          |
+| target_platforms          | array               | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | [Deprecated]                                                                                                                                                              |
+| target_platforms[]        | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                           |
+| version                   | int                 | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Revision version, it's incremented on each change                                                                                                                         |
+| updated_at                | datetime(ISO 8601)  | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Last updated datetime                                                                                                                                                     |
 
 ### READ
 
 #### Parameters
-| Name         | In        | Type    | Required            | Default        | Constraint                    | Description |
-|--------------|-----------|---------|---------------------|----------------|-------------------------------|-------------|
-| id           | Route     | int     | ![true][trueIcon]   | ![n/a][naIcon] |                               |             |
-| X-API-LOCALE | Header    | string  | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |             |
+| Name         | In        | Type    | Required            | Default        | Constraint                    |
+|--------------|-----------|---------|---------------------|----------------|-------------------------------|
+| id           | Route     | int     | ![true][trueIcon]   | ![n/a][naIcon] |                               |
+| X-API-LOCALE | Header    | string  | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
 
 #### Responses
 | Http Code | Description           | Response type    | Response Content |
@@ -91,7 +91,6 @@
 | gps_transform[]           | Body  | float   | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] |                                  |
 | gps_translate             | Body  | array   | ![true][trueIcon]   | ![false][falseIcon] | null           | Count: 3                         |
 | gps_translate[]           | Body  | float   | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] |                                  |
-| id                        | Route | int     | ![false][falseIcon] | ![false][falseIcon] | Auto-generated | Strictly Positive                |
 | languages                 | Body  | array   | ![false][falseIcon] | ![false][falseIcon] | []             |                                  |
 | languages[]               | Body  | string  | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] |                                  |
 | locale                    | Body  | string  | ![true][trueIcon]   | ![false][falseIcon] | null           |                                  |
