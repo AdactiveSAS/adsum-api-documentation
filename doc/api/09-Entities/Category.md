@@ -1,54 +1,55 @@
 # Category
 
 ## CRUD
-| CRUD         | Http Verb | Route          | Description |
-|--------------|-----------|----------------|-------------|
-| READ         | GET       | /category/{id} |             |
-| CREATE       | POST      | /category      |             |
-| UPDATE       | POST      | /category/{id} |             |
-| DELETE       | DELETE    | /category/{id} |             |
-| SEARCH       | GET       | /category      |             |
-| BATCH DELETE | DELETE    | /category      |             |
+| CRUD         | Http Verb | Route          | Description                             |
+|--------------|-----------|----------------|-----------------------------------------|
+| READ         | GET       | /category/{id} | Retrieve a single Category from it's id |
+| CREATE       | POST      | /category      | Create a Category                       |
+| UPDATE       | POST      | /category/{id} | Update a Category                       |
+| DELETE       | DELETE    | /category/{id} | Delete a Category                       |
+| SEARCH       | GET       | /category      | Looking for Categories                  |
+| BATCH DELETE | DELETE    | /category      | Delete multiple Categories              |
 
 ## Model
-| Field                 | Type               | Readonly            | Nullable            | Translatable        | Description |
-|-----------------------|--------------------|---------------------|---------------------|---------------------|-------------|
-| childLinks            | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| childLinks[]          | array              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| childLinks[].id       | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| childLinks[].position | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| client_id             | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| color                 | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| created_at            | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-| id                    | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-| logo                  | int                | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| metadata              | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[].key        | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[].type       | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| metadata[].value      | mixed              | ![n/a][naIcon]      | ![true][trueIcon]   | ![false][falseIcon] |             |
-| name                  | string             | ![false][falseIcon] | ![false][falseIcon] | ![true][trueIcon]   |             |
-| parameters            | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| parameters[]          | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| parentLinks           | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| parentLinks[]         | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| pois                  | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| pois[]                | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| rank                  | int                | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| signature             | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| site                  | int                | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| tags                  | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] |             |
-| tags[]                | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
-| type                  | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
-| updated_at            | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-| version               | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
+| Field                 | Type               | Readonly            | Nullable            | Translatable        | Description                                                                                                                                                      |
+|-----------------------|--------------------|---------------------|---------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| childLinks            | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of children Categories                                                                                                                                      |
+| childLinks[]          | array              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                  |
+| childLinks[].id       | Category#id        | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Child Category identifier                                                                                                                                        |
+| childLinks[].position | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Child Category position used to sort children. The sorting order is descending regarless position, in case of equals positions lower identifier will come first. |
+| client_id             | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | An arbitrary field used to store external identfier to match our own                                                                                             |
+| color                 | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Color in HTML form such as "#ffffff"                                                                                                                             |
+| created_at            | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Create datetime                                                                                                                                                  |
+| id                    | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Identifier                                                                                                                                                       |
+| logo                  | File#id            | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | File identifier that contains the logo image.                                                                                                                    |
+| metadata              | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | An array of metadatum used to store additional arbitrary data                                                                                                    |
+| metadata[]            | array              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                  |
+| metadata[].key        | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Metadatum unique key                                                                                                                                             |
+| metadata[].type       | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Metadatum value type                                                                                                                                             |
+| metadata[].value      | mixed              | ![n/a][naIcon]      | ![true][trueIcon]   | ![false][falseIcon] | Metadatum value                                                                                                                                                  |
+| name                  | string             | ![false][falseIcon] | ![false][falseIcon] | ![true][trueIcon]   | Name                                                                                                                                                             |
+| parameters            | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | [Depreciated]                                                                                                                                                    |
+| parameters[]          | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                  |
+| parentLinks           | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of parent Categories                                                                                                                                        |
+| parentLinks[]         | Category#id        | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Parent Category identifier                                                                                                                                       |
+| pois                  | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of Pois belonging on that Category                                                                                                                          |
+| pois[]                | Poi#id             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Poi identifier                                                                                                                                                   |
+| rank                  | int                | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Rank used to sort root Categories (The one without parent). Higher come first.                                                                                   |
+| signature             | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Unique optional identifier used to reference that Site to be used in data import                                                                                 |
+| site                  | Site#id            | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Site identifier                                                                                                                                                  |
+| tags                  | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of Tags                                                                                                                                                     |
+| tags[]                | Tag#id             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Tag identifier                                                                                                                                                   |
+| type                  | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Type used to store arbitrary role of that Category in client applications.                                                                                       |
+| version               | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Revision version, it's incremented on each change                                                                                                                |
+| updated_at            | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Last updated datetime                                                                                                                                            |
 
 ### READ
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint                    | Description |
-|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------|
-| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |             |
-| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |             |
+| Name         | In     | Type   | Required            | Default        | Constraint                    |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|
+| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |
+| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
 
 
 #### Responses
@@ -64,33 +65,33 @@
 ### CREATE
 
 #### Parameters
-| Name                  | In     | Type               | Required            | Default             | Constraint                     | Description |
-|-----------------------|--------|--------------------|---------------------|---------------------|--------------------------------|-------------|
-| X-API-LOCALE          | Header | string             | ![false][falseIcon] | Site#locale         | Must be one of Site#languages  |             |
-| childLinks            | Data   | array              | ![false][falseIcon] | []                  |                                |             |
-| childLinks[]          | Data   | array              | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| childLinks[].id       | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]      | Valid Category#id on same site |             |
-| childLinks[].position | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| client_id             | Data   | string &#124; null | ![false][falseIcon] | null                |                                |             |
-| color                 | Data   | string &#124; null | ![false][falseIcon] | null                |                                |             |
-| logo                  | Data   | int &#124; null    | ![false][falseIcon] | null                | Valid File#id on same site     |             |
-| metadata              | Data   | array              | ![false][falseIcon] | []                  |                                |             |
-| metadata[].key        | Data   | string             | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| metadata[].type       | Data   | string             | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| metadata[].value      | Data   | mixed              | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| name                  | Data   | string             | ![true][trueIcon]   | ![n/a][naIcon]      | Not empty string               |             |
-| parameters            | Data   | array              | ![false][falseIcon] | []                  |                                |             |
-| parameters[]          | Data   | string             | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| parentLinks           | Data   | array              | ![false][falseIcon] | []                  |                                |             |
-| parentLinks[]         | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]      |                                |             |
-| pois                  | Data   | array              | ![false][falseIcon] | []                  |                                |             |
-| pois[]                | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]      | Valid Poi#id on same site      |             |
-| rank                  | Data   | int                | ![false][falseIcon] | 0                   |                                |             |
-| signature             | Data   | string &#124; null | null                | ![false][falseIcon] | null                           |             |
-| site                  | Data   | int                | ![true][trueIcon]   | ![n/a][naIcon]      | Valid Site#id                  |             |
-| tags                  | Data   | array              | ![false][falseIcon] | []                  |                                |             |
-| tags[]                | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]      | Valid Tag#id on same site      |             |
-| type                  | Data   | string &#124; null | null                | ![false][falseIcon] | null                           |             |
+| Name                  | In     | Type        | Nullable            | Required            | Default        | Constraint                     |
+|-----------------------|--------|-------------|---------------------|---------------------|----------------|--------------------------------|
+| X-API-LOCALE          | Header | string      | ![false][falseIcon] | ![false][falseIcon] | Site#locale    | Must be one of Site#languages  |
+| childLinks            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| childLinks[]          | Data   | array       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| childLinks[].id       | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Category#id on same site |
+| childLinks[].position | Data   | int         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| client_id             | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
+| color                 | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
+| logo                  | Data   | File#id     | ![true][trueIcon]   | ![false][falseIcon] | null           | Valid File#id on same site     |
+| metadata              | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| metadata[].key        | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| metadata[].type       | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| metadata[].value      | Data   | mixed       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| name                  | Data   | string      | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Not empty string               |
+| parameters            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| parameters[]          | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| parentLinks           | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| parentLinks[]         | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| pois                  | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| pois[]                | Data   | Poi#id      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Poi#id on same site      |
+| rank                  | Data   | int         | ![false][falseIcon] | ![false][falseIcon] | 0              |                                |
+| signature             | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
+| site                  | Data   | int         | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Valid Site#id                  |
+| tags                  | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| tags[]                | Data   | Tag#id      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Tag#id on same site      |
+| type                  | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 
 
 #### Responses
@@ -106,34 +107,34 @@
 ### UPDATE
 
 #### Parameters
-| Name                  | In     | Type               | Required            | Default         | Constraint                     | Description |
-|-----------------------|--------|--------------------|---------------------|-----------------|--------------------------------|-------------|
-| id                    | Route  | int                | ![true][trueIcon]   | ![n/a][naIcon]  |                                |             |
-| X-API-LOCALE          | Header | string             | ![false][falseIcon] | Site#locale     | Must be one of Site#languages  |             |
-| childLinks            | Data   | array              | ![false][falseIcon] | Preserves value |                                |             |
-| childLinks[]          | Data   | array              | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| childLinks[].id       | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Category#id on same site |             |
-| childLinks[].position | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| client_id             | Data   | string &#124; null | ![false][falseIcon] | Preserves value |                                |             |
-| color                 | Data   | string &#124; null | ![false][falseIcon] | Preserves value |                                |             |
-| logo                  | Data   | int &#124; null    | ![false][falseIcon] | Preserves value | Valid File#id on same site     |             |
-| metadata              | Data   | array              | ![false][falseIcon] | Preserves value |                                |             |
-| metadata[].key        | Data   | string             | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| metadata[].type       | Data   | string             | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| metadata[].value      | Data   | mixed              | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| name                  | Data   | string             | ![false][falseIcon] | Preserves value | Not empty string               |             |
-| parameters            | Data   | array              | ![false][falseIcon] | Preserves value |                                |             |
-| parameters[]          | Data   | string             | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| parentLinks           | Data   | array              | ![false][falseIcon] | Preserves value |                                |             |
-| parentLinks[]         | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |             |
-| pois                  | Data   | array              | ![false][falseIcon] | Preserves value |                                |             |
-| pois[]                | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Poi#id on same site      |             |
-| rank                  | Data   | int                | ![false][falseIcon] | Preserves value |                                |             |
-| signature             | Data   | string&#124;null   | ![false][falseIcon] | Preserves value |                                |             |
-| site                  | Data   | int                | ![false][falseIcon] | ![n/a][naIcon]  | Valid Site#id                  |             |
-| tags                  | Data   | array              | ![false][falseIcon] | Preserves value |                                |             |
-| tags[]                | Data   | int                | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Tag#id on same site      |             |
-| type                  | Data   | string&#124; null  | ![false][falseIcon] | Preserves value |                                |             |
+| Name                  | In     | Type        | Nullable            | Required            | Default         | Constraint                     |
+|-----------------------|--------|-------------|---------------------|---------------------|-----------------|--------------------------------|
+| id                    | Route  | int         | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon]  |                                |
+| X-API-LOCALE          | Header | string      | ![false][falseIcon] | ![false][falseIcon] | Site#locale     | Must be one of Site#languages  |
+| childLinks            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| childLinks[]          | Data   | array       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| childLinks[].id       | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Category#id on same site |
+| childLinks[].position | Data   | int         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| client_id             | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                                |
+| color                 | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                                |
+| logo                  | Data   | File#id     | ![true][trueIcon]   | ![false][falseIcon] | Preserves value | Valid File#id on same site     |
+| metadata              | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| metadata[].key        | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| metadata[].type       | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| metadata[].value      | Data   | mixed       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| name                  | Data   | string      | ![false][falseIcon] | ![false][falseIcon] | Preserves value | Not empty string               |
+| parameters            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| parameters[]          | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| parentLinks           | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| parentLinks[]         | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| pois                  | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| pois[]                | Data   | Poi#id      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Poi#id on same site      |
+| rank                  | Data   | int         | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| signature             | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                                |
+| site                  | Data   | Site#id     | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon]  | Valid Site#id                  |
+| tags                  | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| tags[]                | Data   | Tag#id      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Tag#id on same site      |
+| type                  | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                                |
 
 
 #### Responses
@@ -149,9 +150,9 @@
 ### DELETE
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint                    | Description |
-|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------|
-| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |             |
+| Name         | In     | Type   | Required            | Default        | Constraint                    |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|
+| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |
 
 #### Responses
 | Http Code | Description           | Response type    | Response Content |
@@ -166,13 +167,13 @@
 ### SEARCH
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint                    | Description |
-|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------|
-| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |             |
-| name         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |             |
-| signature    | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |             |
-| site         | Query  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |             |
-| type         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |             |
+| Name         | In     | Type   | Required            | Default        | Constraint                    |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|
+| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
+| name         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |
+| signature    | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |
+| site         | Query  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |
+| type         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |
 
 #### Responses
 | Http Code | Description           | Response type    | Response Content |
@@ -187,10 +188,10 @@
 ### BATCH DELETE
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint | Description |
-|--------------|--------|--------|---------------------|----------------|------------|-------------|
-| site         | Query  | int    | ![true][trueIcon]   | ![n/a][naIcon] |            |             |
-| id           | Query  | int[]  | ![true][trueIcon]   | ![n/a][naIcon] |            |             |
+| Name         | In     | Type   | Required            | Default        | Constraint |
+|--------------|--------|--------|---------------------|----------------|------------|
+| site         | Query  | int    | ![true][trueIcon]   | ![n/a][naIcon] |            |
+| id           | Query  | int[]  | ![true][trueIcon]   | ![n/a][naIcon] |            |
 
 #### Responses
 | Http Code | Description           | Response type    | Response Content |
