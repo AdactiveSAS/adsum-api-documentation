@@ -11,12 +11,16 @@
 | BATCH DELETE | DELETE    | /category      | Delete multiple Categories              |
 
 ## Model
+
+> WARNING: This Model is the one retrieve using X-API-MODE="get" (see READ & SEARCH operations). So if you use the legacy one 
+(standard), the model may differs on some fields.
+
 | Field                 | Type               | Readonly            | Nullable            | Translatable        | Description                                                                                                                                                      |
 |-----------------------|--------------------|---------------------|---------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| childLinks            | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of children Categories                                                                                                                                      |
-| childLinks[]          | array              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                  |
-| childLinks[].id       | Category#id        | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Child Category identifier                                                                                                                                        |
-| childLinks[].position | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Child Category position used to sort children. The sorting order is descending regarless position, in case of equals positions lower identifier will come first. |
+| children              | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of children Categories                                                                                                                                      |
+| children[]            | array              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                  |
+| children[].id         | Category#id        | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Child Category identifier                                                                                                                                        |
+| children[].position   | int                | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Child Category position used to sort children. The sorting order is descending regarless position, in case of equals positions lower identifier will come first. |
 | client_id             | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | An arbitrary field used to store external identfier to match our own                                                                                             |
 | color                 | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Color in HTML form such as "#ffffff"                                                                                                                             |
 | created_at            | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Create datetime                                                                                                                                                  |
@@ -30,8 +34,8 @@
 | name                  | string             | ![false][falseIcon] | ![false][falseIcon] | ![true][trueIcon]   | Name                                                                                                                                                             |
 | parameters            | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | [Depreciated]                                                                                                                                                    |
 | parameters[]          | string             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |                                                                                                                                                                  |
-| parentLinks           | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of parent Categories                                                                                                                                        |
-| parentLinks[]         | Category#id        | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Parent Category identifier                                                                                                                                       |
+| parents               | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of parent Categories                                                                                                                                        |
+| parents[]             | Category#id        | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Parent Category identifier                                                                                                                                       |
 | pois                  | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of Pois belonging on that Category                                                                                                                          |
 | pois[]                | Poi#id             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Poi identifier                                                                                                                                                   |
 | rank                  | int                | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Rank used to sort root Categories (The one without parent). Higher come first.                                                                                   |
@@ -46,21 +50,22 @@
 ### READ
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint                    |
-|--------------|--------|--------|---------------------|----------------|-------------------------------|
-| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |
-| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
+| Name         | In     | Type   | Required            | Default        | Constraint                    | Description                                                                               |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------------------------------------------------------------------------------------|
+| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |                                                                                           |
+| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |                                                                                           |
+| X-API-MODE   | Header | string | ![false][falseIcon] | standard       | "standard" or "get"           | The "standard" mode is deprecated. Note that X-API-MODE will change serialization format. |
 
 
 #### Responses
-| Http Code | Description           | Response type    | Response Content |
-|-----------|-----------------------|------------------|------------------|
-| 200       | Success               | application/json | Category         |
-| 400       | Invalid data          | application/json | Error            |
-| 403       | Authentication Error  | application/json | Error            |
-| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   |
-| 500       | Internal Server Error | application/json | Error            |
-| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   |
+| Http Code | Description           | Response type    | Response Content | Note |
+|-----------|-----------------------|------------------|------------------|---|
+| 200       | Success               | application/json | Category         | The Category serialisation will differs depending on X-API-MODE |
+| 400       | Invalid data          | application/json | Error            | |
+| 403       | Authentication Error  | application/json | Error            | |
+| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   | |
+| 500       | Internal Server Error | application/json | Error            | |
+| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   | |
 
 ### CREATE
 
@@ -68,10 +73,10 @@
 | Name                  | In     | Type        | Nullable            | Required            | Default        | Constraint                     |
 |-----------------------|--------|-------------|---------------------|---------------------|----------------|--------------------------------|
 | X-API-LOCALE          | Header | string      | ![false][falseIcon] | ![false][falseIcon] | Site#locale    | Must be one of Site#languages  |
-| childLinks            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
-| childLinks[]          | Data   | array       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
-| childLinks[].id       | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Category#id on same site |
-| childLinks[].position | Data   | int         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| children              | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| children[]            | Data   | array       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| children[].id         | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Category#id on same site |
+| children[].position   | Data   | int         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
 | client_id             | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 | color                 | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 | logo                  | Data   | File#id     | ![true][trueIcon]   | ![false][falseIcon] | null           | Valid File#id on same site     |
@@ -82,8 +87,8 @@
 | name                  | Data   | string      | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Not empty string               |
 | parameters            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | parameters[]          | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
-| parentLinks           | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
-| parentLinks[]         | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
+| parents               | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
+| parents[]             | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
 | pois                  | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | pois[]                | Data   | Poi#id      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Poi#id on same site      |
 | rank                  | Data   | int         | ![false][falseIcon] | ![false][falseIcon] | 0              |                                |
@@ -111,10 +116,10 @@
 |-----------------------|--------|-------------|---------------------|---------------------|-----------------|--------------------------------|
 | id                    | Route  | int         | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon]  |                                |
 | X-API-LOCALE          | Header | string      | ![false][falseIcon] | ![false][falseIcon] | Site#locale     | Must be one of Site#languages  |
-| childLinks            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
-| childLinks[]          | Data   | array       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
-| childLinks[].id       | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Category#id on same site |
-| childLinks[].position | Data   | int         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| children              | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| children[]            | Data   | array       | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| children[].id         | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Category#id on same site |
+| children[].position   | Data   | int         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
 | client_id             | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                                |
 | color                 | Data   | string      | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                                |
 | logo                  | Data   | File#id     | ![true][trueIcon]   | ![false][falseIcon] | Preserves value | Valid File#id on same site     |
@@ -125,8 +130,8 @@
 | name                  | Data   | string      | ![false][falseIcon] | ![false][falseIcon] | Preserves value | Not empty string               |
 | parameters            | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
 | parameters[]          | Data   | string      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
-| parentLinks           | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
-| parentLinks[]         | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
+| parents               | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
+| parents[]             | Data   | Category#id | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  |                                |
 | pois                  | Data   | array       | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
 | pois[]                | Data   | Poi#id      | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Poi#id on same site      |
 | rank                  | Data   | int         | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                                |
@@ -176,14 +181,14 @@
 | type         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |
 
 #### Responses
-| Http Code | Description           | Response type    | Response Content |
-|-----------|-----------------------|------------------|------------------|
-| 200       | Success               | application/json | Category[]       |
-| 400       | Invalid data          | application/json | Error            |
-| 403       | Authentication Error  | application/json | Error            |
-| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   |
-| 500       | Internal Server Error | application/json | Error            |
-| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   |
+| Http Code | Description           | Response type    | Response Content | Note |
+|-----------|-----------------------|------------------|------------------|---|
+| 200       | Success               | application/json | Category[]       | The Category serialisation will differs depending on X-API-MODE |
+| 400       | Invalid data          | application/json | Error            | |
+| 403       | Authentication Error  | application/json | Error            | |
+| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   | |
+| 500       | Internal Server Error | application/json | Error            | |
+| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   | |
 
 ### BATCH DELETE
 

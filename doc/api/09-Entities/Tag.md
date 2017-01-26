@@ -11,6 +11,10 @@
 | BATCH DELETE | DELETE    | /tag      | Delete multiple Tags               |
 
 ## Model
+
+> WARNING: This Model is the one retrieve using X-API-MODE="get" (see READ & SEARCH operations). So if you use the legacy one 
+(standard), the model may differs on some fields.
+
 | Field        | Type               | Readonly            | Nullable            | Translatable        | Description                                                                      |
 |--------------|--------------------|---------------------|---------------------|---------------------|----------------------------------------------------------------------------------|
 | categories   | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of associated Categories                                                    |
@@ -32,21 +36,22 @@
 ### READ
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint                    |
-|--------------|--------|--------|---------------------|----------------|-------------------------------|
-| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |
-| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
+| Name         | In     | Type   | Required            | Default        | Constraint                    | Description                                                                               |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------------------------------------------------------------------------------------|
+| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |                                                                                           |
+| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |                                                                                           |
+| X-API-MODE   | Header | string | ![false][falseIcon] | standard       | "standard" or "get"           | The "standard" mode is deprecated. Note that X-API-MODE will change serialization format. |
 
 
 #### Responses
-| Http Code | Description           | Response type    | Response Content |
-|-----------|-----------------------|------------------|------------------|
-| 200       | Success               | application/json | Tag              |
-| 400       | Invalid data          | application/json | Error            |
-| 403       | Authentication Error  | application/json | Error            |
-| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   |
-| 500       | Internal Server Error | application/json | Error            |
-| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   |
+| Http Code | Description           | Response type    | Response Content | Note |
+|-----------|-----------------------|------------------|------------------|--- | 
+| 200       | Success               | application/json | Tag              | The Tag serialisation will differs depending on X-API-MODE |
+| 400       | Invalid data          | application/json | Error            | |
+| 403       | Authentication Error  | application/json | Error            | |
+| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   | |
+| 500       | Internal Server Error | application/json | Error            | |
+| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   | |
 
 ### CREATE
 
@@ -126,22 +131,23 @@
 ### SEARCH
 
 #### Parameters
-| Name         | In     | Type   | Required            | Default        | Constraint                    |
-|--------------|--------|--------|---------------------|----------------|-------------------------------|
-| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
-| name         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |
-| signature    | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |
-| site         | Query  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |
+| Name         | In     | Type   | Required            | Default        | Constraint                    | Description                                                                               |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------------------------------------------------------------------------------------|
+| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |                                                                                           |
+| X-API-MODE   | Header | string | ![false][falseIcon] | standard       | "standard" or "get"           | The "standard" mode is deprecated. Note that X-API-MODE will change serialization format. |
+| name         | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |                                                                                           |
+| signature    | Query  | string | ![false][falseIcon] | ![n/a][naIcon] |                               |                                                                                           |
+| site         | Query  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |                                                                                           |
 
 #### Responses
-| Http Code | Description           | Response type    | Response Content |
-|-----------|-----------------------|------------------|------------------|
-| 200       | Success               | application/json | Tag[]            |
-| 400       | Invalid data          | application/json | Error            |
-| 403       | Authentication Error  | application/json | Error            |
-| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   |
-| 500       | Internal Server Error | application/json | Error            |
-| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   |
+| Http Code | Description           | Response type    | Response Content | Note |
+|-----------|-----------------------|------------------|------------------|---|
+| 200       | Success               | application/json | Tag[]            | The Tag serialisation will differs depending on X-API-MODE |
+| 400       | Invalid data          | application/json | Error            | |
+| 403       | Authentication Error  | application/json | Error            | |
+| 404       | Not Found             | ![n/a][naIcon]   | ![n/a][naIcon]   | |
+| 500       | Internal Server Error | application/json | Error            | |
+| 503       | Service Unavailable   | ![n/a][naIcon]   | ![n/a][naIcon]   | |
 
 ### BATCH DELETE
 

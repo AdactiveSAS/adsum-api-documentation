@@ -7,6 +7,10 @@
 | UPDATE | POST      | /site/{id} | Update a single Site                |
 
 ## Model
+
+> WARNING: This Model is the one retrieve using X-API-MODE="get" (see READ operation). So if you use the legacy one 
+(standard), the model may differs on some fields.
+
 | Field                     | Type                | Readonly            | Nullable            | Translatable        | Description                                                                                                                                                               |
 |---------------------------|---------------------|---------------------|---------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | address                   | string              | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Postal address                                                                                                                                                            |
@@ -51,10 +55,11 @@
 ### READ
 
 #### Parameters
-| Name         | In        | Type    | Required            | Default        | Constraint                    |
-|--------------|-----------|---------|---------------------|----------------|-------------------------------|
-| id           | Route     | int     | ![true][trueIcon]   | ![n/a][naIcon] |                               |
-| X-API-LOCALE | Header    | string  | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |
+| Name         | In     | Type   | Required            | Default        | Constraint                    | Description                                                                               |
+|--------------|--------|--------|---------------------|----------------|-------------------------------|-------------------------------------------------------------------------------------------|
+| id           | Route  | int    | ![true][trueIcon]   | ![n/a][naIcon] |                               |                                                                                           |
+| X-API-LOCALE | Header | string | ![false][falseIcon] | Site#locale    | Must be one of Site#languages |                                                                                           |
+| X-API-MODE   | Header | string | ![false][falseIcon] | standard       | "standard" or "get"           | The "standard" mode is deprecated. Note that X-API-MODE will change serialization format. |
 
 #### Responses
 | Http Code | Description           | Response type    | Response Content |
