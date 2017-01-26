@@ -1,5 +1,11 @@
 # Site
 
+## CRUD
+| CRUD   | Http Verb | Route      | Description      |
+|--------|-----------|------------|------------------|
+| READ   | GET       | /site/{id} |                  |
+| UPDATE | POST      | /site/{id} |                  |
+
 ## Model
 | Field                     | Type                | Readonly            | Nullable            | Translatable        | Description |
 |---------------------------|---------------------|---------------------|---------------------|---------------------|-------------|
@@ -41,12 +47,6 @@
 | target_platforms[]        | string              | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] |             |
 | version                   | int                 | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
 | updated_at                | datetime(ISO 8601)  | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-
-## CRUD
-| CRUD   | Http Verb | Route      | Description      |
-|--------|-----------|------------|------------------|
-| READ   | GET       | /site/{id} |                  |
-| UPDATE | POST      | /site/{id} |                  |
 
 ### READ
 

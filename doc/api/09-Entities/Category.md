@@ -1,5 +1,15 @@
 # Category
 
+## CRUD
+| CRUD         | Http Verb | Route          | Description |
+|--------------|-----------|----------------|-------------|
+| READ         | GET       | /category/{id} |             |
+| CREATE       | POST      | /category      |             |
+| UPDATE       | POST      | /category/{id} |             |
+| DELETE       | DELETE    | /category/{id} |             |
+| SEARCH       | GET       | /category      |             |
+| BATCH DELETE | DELETE    | /category      |             |
+
 ## Model
 | Field                 | Type               | Readonly            | Nullable            | Translatable        | Description |
 |-----------------------|--------------------|---------------------|---------------------|---------------------|-------------|
@@ -31,16 +41,6 @@
 | type                  | string             | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] |             |
 | updated_at            | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
 | version               | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] |             |
-
-## CRUD
-| CRUD         | Http Verb | Route          | Description |
-|--------------|-----------|----------------|-------------|
-| READ         | GET       | /category/{id} |             |
-| CREATE       | POST      | /category      |             |
-| UPDATE       | POST      | /category/{id} |             |
-| DELETE       | DELETE    | /category/{id} |             |
-| SEARCH       | GET       | /category      |             |
-| BATCH DELETE | DELETE    | /category      |             |
 
 ### READ
 
