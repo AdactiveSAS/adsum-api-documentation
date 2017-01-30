@@ -157,7 +157,6 @@
 #### Parameters
 
 ##### Shared Parameters
-
 | Name                | In     | Type            | Nullable            | Required            | Default        | Constraint                     |
 |---------------------|--------|-----------------|---------------------|---------------------|----------------|--------------------------------|
 | X-API-LOCALE        | Header | string          | ![false][falseIcon] | ![false][falseIcon] | Site#locale    | Must be one of Site#languages  |
@@ -170,7 +169,7 @@
 | client_id           | Data   | string          | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 | custom_objects      | Data   | array           | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | custom_objects[]    | Data   | CustomObject#id | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] | Valid CustomObject#id on same Site |
-| description         | Data   | string          | ![n/a][naIcon]      | ![n/a][naIcon]      | null           |                                |
+| description         | Data   | string          | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 | logos               | Data   | array           | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | logos[]             | Data   | array           | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
 | logos[].id          | Data   | File#id         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid File#id on same Site    |
@@ -197,7 +196,7 @@
 | site                | Data   | int             | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Valid Site#id                  |
 | tags                | Data   | array           | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | tags[]              | Data   | Tag#id          | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Tag#id on same site      |
-| type                | Data   | string          | ![true][trueIcon]   | ![true][trueIcon]   | ![n/a][naIcon] | One of discriminator value     |
+| type                | Data   | string          | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | One of discriminator value     |
 
 ##### Exhibitor specific parameters (type="exhibitor")
 | Name  | In   | Type   | Nullable          | Required                          | Default | Constraint |
