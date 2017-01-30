@@ -169,7 +169,7 @@
 | client_id           | Data   | string          | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 | custom_objects      | Data   | array           | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | custom_objects[]    | Data   | CustomObject#id | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] | Valid CustomObject#id on same Site |
-| description         | Data   | string          | ![n/a][naIcon]      | ![n/a][naIcon]      | null           |                                |
+| description         | Data   | string          | ![true][trueIcon]   | ![false][falseIcon] | null           |                                |
 | logos               | Data   | array           | ![false][falseIcon] | ![false][falseIcon] | []             |                                |
 | logos[]             | Data   | array           | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] |                                |
 | logos[].id          | Data   | File#id         | ![n/a][naIcon]      | ![n/a][naIcon]      | ![n/a][naIcon] | Valid File#id on same Site    |
