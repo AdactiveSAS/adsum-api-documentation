@@ -1,38 +1,10 @@
-# Path
+# MapFile
 
-http://api.adsum.io/api/2.1/map?site={site_id}&type=path
+## Search MapPath
 
-Path request allow to retrieve our network path.
+https://api.adsum.io/2.1/map?site={site_id}&type=path
 
-The path information itself is contains in the paths object and is composed of 2 array :  Node and links
-the xml file is deprecated 
-
-## Nodes
-Nodes is an array of node object with :
-
-+ An unique id
-+ A location, to which shapes it's connected
-+ a position in adsmu coordinnates
-+ If it's a gate or note
-+ Link connected to the node
-+ the floor id
-
-## Links
-
-Link is the relation between two nodes
-
-+ An unique id
-+ type : If its PMR only, not PMR etc 
-+ biderectionnal : If the it's a one way path or can be use in both way
-+ weight is the "speed of the path" for example, stairs can have more weight than escalators path
-+ The id of the "from" node 
-+ The id of the "to" node
-
-
-## Example
-
-
-```javascript
+```json
 [{
 		"site": 366,
 		"file": {
