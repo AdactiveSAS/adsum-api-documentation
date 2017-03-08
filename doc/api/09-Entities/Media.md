@@ -39,7 +39,7 @@
 | start_at             | datetime(ISO 8601) | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | Media start datetime                                                                                                                                  |
 | tags                 | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of Tags                                                                                                                                          |
 | tags[]               | Tag#id             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Tag identifier                                                                                                                                        |
-| type                 | string             | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Poi discriminator field                                                                                                                               |
+| type                 | string             | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Media discriminator field                                                                                                                               |
 | updated_at           | datetime(ISO 8601) | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Last updated datetime                                                                                                                                 |
 | version              | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Revision version, it's incremented on each change                                                                                                     |
 
@@ -158,7 +158,7 @@
 ##### MediaPdf specific parameters (type="pdf")
 | Name    | In   | Type    | Nullable            | Required            | Default        | Constraint                 |
 |---------|------|---------|---------------------|---------------------|----------------|----------------------------|
-| file    | Data | File#id | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] | Valid File#id on same Site |
+| file    | Data | File#id | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Valid File#id on same Site |
 
 ##### MediaText specific parameters (type="text")
 | Name       | In   | Type   | Nullable          | Required            | Default | Constraint |
@@ -175,7 +175,7 @@
 ##### MediaVideo specific parameters (type="video")
 | Name    | In   | Type    | Nullable            | Required            | Default        | Constraint                 |
 |---------|------|---------|---------------------|---------------------|----------------|----------------------------|
-| file    | Data | File#id | ![false][falseIcon] | ![false][falseIcon] | ![n/a][naIcon] | Valid File#id on same Site |
+| file    | Data | File#id | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Valid File#id on same Site |
 
 [trueIcon]: https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png
 [falseIcon]: https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png
