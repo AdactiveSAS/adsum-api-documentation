@@ -1,0 +1,209 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>MapFile · Adsum REST API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="MapFile · Adsum REST API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://adactivesas.github.io/adsum-api-documentation/index.html"/><meta property="og:description" content="## CRUD"/><link rel="shortcut icon" href="/img/adsum.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible doc"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/adsum.png" alt="Adsum REST API"/><h2 class="headerTitle">Adsum REST API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/01-authentication.html" target="_self">Docs</a></li><li class=""><a href="/docs/tuto-01-authentication.html" target="_self">Examples</a></li><li class="siteNavGroupActive"><a href="/docs/reference-01-site.html" target="_self">Reference</a></li><li class=""><a href="https://adactive.atlassian.net/servicedesk/customer/portal/1" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Reference</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem"><a class="navItem" href="/docs/reference-01-site.html">Site</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-02-place.html">Place</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-03-poi.html">Poi</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-04-media.html">Media</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-05-playlist.html">Playlist</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-06-category.html">Category</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-07-customObject.html">CustomObject</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-08-device.html">Device</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-09-siteCalibration.html">SiteCalibration</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-10-floorCalibration.html">FloorCalibration</a></li><li class="navListItem"><a class="navItem" href="/docs/reference-11-tag.html">Tag</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/reference-12-mapFile.html">MapFile</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>MapFile</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="crud"></a><a href="#crud" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CRUD</h2>
+<table>
+<thead>
+<tr><th>CRUD</th><th>Http Verb</th><th>Route</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>READ</td><td>GET</td><td>/map/{id}</td><td>Retrieve a single MapFile from it's id</td></tr>
+<tr><td>CREATE</td><td>POST</td><td>/map</td><td>Create a MapFile</td></tr>
+<tr><td>UPDATE</td><td>POST</td><td>/map/{id}</td><td>Update a MapFile</td></tr>
+<tr><td>DELETE</td><td>DELETE</td><td>/map/{id}</td><td>Delete a MapFile</td></tr>
+<tr><td>SEARCH</td><td>GET</td><td>/map</td><td>Looking for MapFiles</td></tr>
+<tr><td>BATCH DELETE</td><td>DELETE</td><td>/map</td><td>Delete multiple MapFiles</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="model"></a><a href="#model" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Model</h2>
+<blockquote>
+<p>WARNING: This Model is the one retrieve using X-API-MODE=&quot;get&quot; (see READ &amp; SEARCH operations). So if you use the legacy one
+(standard), the model may differs on some fields.</p>
+</blockquote>
+<blockquote>
+<p>CAUTION: MapFile is an abstract class, so you can't create a MapFile, you will always have to create an inherited entity of MapFile.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="mapfile-abstract"></a><a href="#mapfile-abstract" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapFile <abstract></h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>created_at</td><td>datetime(ISO 8601)</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png" alt="true"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Create datetime</td></tr>
+<tr><td>file</td><td>File#id</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td></td></tr>
+<tr><td>id</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png" alt="true"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Identifier</td></tr>
+<tr><td>name</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Name</td></tr>
+<tr><td>site</td><td>Site#id</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Site identifier</td></tr>
+<tr><td>type</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Discriminator value</td></tr>
+<tr><td>updated_at</td><td>datetime(ISO 8601)</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png" alt="true"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Last updated datetime</td></tr>
+<tr><td>version</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png" alt="true"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>Revision version, it's incremented on each change</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="discriminator-map"></a><a href="#discriminator-map" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Discriminator Map</h3>
+<table>
+<thead>
+<tr><th>Discriminator Value</th><th>Class</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td>aoDae</td><td>MapAoDae</td><td>[Generated] The map data with ambiant occlusion in dae format</td></tr>
+<tr><td>aoOsg</td><td>MapAoOsg</td><td>[Generated] The map data with ambiant occlusion in osg format</td></tr>
+<tr><td>config</td><td>MapConfig</td><td>The map data config used in editor</td></tr>
+<tr><td>dae</td><td>MapDae</td><td>The map data in dae format</td></tr>
+<tr><td>helper</td><td>MapHelper</td><td>The map helper data used in editor</td></tr>
+<tr><td>ive</td><td>MapIve</td><td>[Generated]The map data in ive format</td></tr>
+<tr><td>light</td><td>MapLight</td><td>The legacy map format</td></tr>
+<tr><td>osg</td><td>MapOsg</td><td>[Generated] The map data in osg format</td></tr>
+<tr><td>path</td><td>MapPath</td><td>[Generated] The map paths</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="mapaodae"></a><a href="#mapaodae" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapAoDae</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="mapaoosg"></a><a href="#mapaoosg" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapAoOsg</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="mapconfig"></a><a href="#mapconfig" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapConfig</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="mapdae"></a><a href="#mapdae" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapDae</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="maphelper"></a><a href="#maphelper" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapHelper</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="mapive"></a><a href="#mapive" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapIve</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="maplight"></a><a href="#maplight" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapLight</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="maposg"></a><a href="#maposg" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapOsg</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="mappath"></a><a href="#mappath" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapPath</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Readonly</th><th>Nullable</th><th>Translatable</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>paths</td><td>object</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>The paths object</td></tr>
+<tr><td>paths.nodes</td><td>array</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>List of nodes of the paths graph</td></tr>
+<tr><td>paths.nodes[]</td><td>object</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>A node element</td></tr>
+<tr><td>paths.nodes[].groundId</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>the groundId where the node belong to</td></tr>
+<tr><td>paths.nodes[].id</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>the node identifier, must be unique in that paths graph</td></tr>
+<tr><td>paths.nodes[].isGate</td><td>boolean</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>Indicate if the node is a gate or a simple one</td></tr>
+<tr><td>paths.nodes[] .links</td><td>array</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>List of links attached to that node</td></tr>
+<tr><td>paths.nodes[].links[]</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>Link identifier</td></tr>
+<tr><td>paths.nodes[].location</td><td>object</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>Reference the 3D data object where the node is placed</td></tr>
+<tr><td>paths.nodes[].location.id</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The 3D data object identifier</td></tr>
+<tr><td>paths.nodes.location.type</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The 3D data object type</td></tr>
+<tr><td>paths.nodes[].position</td><td>object</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The position of the node in the 3D object system</td></tr>
+<tr><td>paths.nodes[].position.x</td><td>float</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The x coordinate</td></tr>
+<tr><td>paths.nodes[].position.y</td><td>float</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>Y coordinate</td></tr>
+<tr><td>paths.nodes[].position.z</td><td>float</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>Z coordinate</td></tr>
+<tr><td>paths.links</td><td>array</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>List of links of the paths graph</td></tr>
+<tr><td>paths.links[]</td><td>object</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>A link</td></tr>
+<tr><td>paths.links[].bidirectional</td><td>boolean</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>Incate if the link could be browse in both ways</td></tr>
+<tr><td>paths.links[].from</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The node identifier source</td></tr>
+<tr><td>paths.links[].id</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The link unique identifier</td></tr>
+<tr><td>paths.links[].to</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The target node identifier</td></tr>
+<tr><td>paths.links[].type</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The link type: 0 for &quot;NORMAL&quot;, 1 for &quot;ONLY PRM&quot;, 2 for &quot;NO PMR&quot; and 3 for &quot;DISABLED&quot;</td></tr>
+<tr><td>paths.links[].weight</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td>The weight given in that link to be considered on path resolution algorithme</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="read"></a><a href="#read" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>READ</h3>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Default</th><th>Constraint</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>Route</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png" alt="true"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td><td></td></tr>
+<tr><td>X-API-MODE</td><td>Header</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>standard</td><td>&quot;standard&quot; or &quot;get&quot;</td><td>The &quot;standard&quot; mode is deprecated. Note that X-API-MODE will change serialization format.</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses"></a><a href="#responses" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h4>
+<table>
+<thead>
+<tr><th>Http Code</th><th>Description</th><th>Response type</th><th>Response Content</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>application/json</td><td>MapFile</td><td>The MapFile serialisation will differs depending on X-API-MODE</td></tr>
+<tr><td>400</td><td>Invalid data</td><td>application/json</td><td>Error</td><td></td></tr>
+<tr><td>403</td><td>Authentication Error</td><td>application/json</td><td>Error</td><td></td></tr>
+<tr><td>404</td><td>Not Found</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td></tr>
+<tr><td>500</td><td>Internal Server Error</td><td>application/json</td><td>Error</td><td></td></tr>
+<tr><td>503</td><td>Service Unavailable</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="search"></a><a href="#search" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SEARCH</h3>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Default</th><th>Constraint</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>X-API-MODE</td><td>Header</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td>standard</td><td>&quot;standard&quot; or &quot;get&quot;</td><td>The &quot;standard&quot; mode is deprecated. Note that X-API-MODE will change serialization format.</td></tr>
+<tr><td>name</td><td>Query</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td><td></td></tr>
+<tr><td>signature</td><td>Query</td><td>string</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/User_Interface/delete_sign-24.png" alt="false"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td><td></td></tr>
+<tr><td>site</td><td>Query</td><td>int</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Very_Basic/checkmark-24.png" alt="true"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td><td></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="responses"></a><a href="#responses" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Responses</h4>
+<table>
+<thead>
+<tr><th>Http Code</th><th>Description</th><th>Response type</th><th>Response Content</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>Success</td><td>application/json</td><td>MapFile[]</td><td>The MapFile serialisation will differs depending on X-API-MODE</td></tr>
+<tr><td>400</td><td>Invalid data</td><td>application/json</td><td>Error</td><td></td></tr>
+<tr><td>403</td><td>Authentication Error</td><td>application/json</td><td>Error</td><td></td></tr>
+<tr><td>404</td><td>Not Found</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td></tr>
+<tr><td>500</td><td>Internal Server Error</td><td>application/json</td><td>Error</td><td></td></tr>
+<tr><td>503</td><td>Service Unavailable</td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td><img src="https://maxcdn.icons8.com/Color/PNG/24/Business/not_applicable-24.png" alt="n/a"></td><td></td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="reference-11-tag.html">← Tag</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/adsum.png" alt="Adsum REST API" width="66" height="58"/></a><div><h5>About US</h5><p>Adactive creates and publishes digital solutions for shopper marketing experiences and innovative location-based services.<a href="https://adactive.com"><i class="fas fa-link"></i> https://adactive.com</a><a href="mailto:contact@adactive.com"><i class="fas fa-envelope"></i> contact@adactive.com</a><a href="https://www.linkedin.com/company/adactive-sas/"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/adactivefr"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/Adactive-124871357587753/"><i class="fab fa-facebook"></i> Facebook</a><a href="https://www.youtube.com/user/adactivefr"><i class="fab fa-youtube"></i> Youtube</a></p></div><div><h5>Headquarter</h5><div><p><i class="fas fa-map"></i> 50 rue Klock - 92110 Clichy, France</p><p><i class="fas fa-phone"></i> +33 (0)6 16 17 50 69</p></div></div><div><h5>Asia office</h5><div><p><i class="fas fa-map"></i> 750A North Bridge Road - 198718 Singapore</p><p><i class="fas fa-linkedin"></i> +65 9082 9380</p></div></div></section><section class="copyright">Copyright © 2018 Adactive SAS</section></footer></div></body></html>
