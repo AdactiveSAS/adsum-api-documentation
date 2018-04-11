@@ -17,6 +17,7 @@ const siteConfig = {
   projectName: 'adsum-api-documentation',
   headerLinks: [
     {doc: '01-authentication', label: 'Docs'},
+    {href: 'https://api-doc.adsum.io', label: 'Postman'},
     {doc: 'tuto-01-authentication', label: 'Examples'},
     {doc: 'reference-01-site', label: 'Reference'},
     {href: 'https://adactive.atlassian.net/servicedesk/customer/portal/1', label: 'Help'},
