@@ -21,6 +21,10 @@ const siteConfig = {
     {doc: 'reference-01-site', label: 'Reference'},
     {href: 'https://adactive.atlassian.net/servicedesk/customer/portal/1', label: 'Help'},
   ],
+  algolia: {
+    apiKey: "d73c8f4661d940e5a03c1427f1ea33b3",
+    indexName: "adsum"
+  },
   users,
   /* path to images for header/footer */
   headerIcon: 'img/adsum.png',
