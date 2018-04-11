@@ -1,0 +1,47 @@
+{
+  "docs": {
+    "Getting Started": [
+      "01-authentication"
+    ],
+    "Data Model": [
+      "model-01-relations",
+      "model-02-place",
+      "model-03-poi",
+      "model-04-media",
+      "model-05-playlist",
+      "model-06-category",
+      "model-07-customObject",
+      "model-08-device",
+      "model-09-siteCalibration",
+      "model-10-floorCalibration",
+      "model-11-tag",
+      "model-12-mapFile",
+      "model-13-feature"
+    ]
+  },
+  "examples": {
+    "Examples": [
+      "tuto-01-authentication",
+      "tuto-02-category",
+      "tuto-03-file",
+      "tuto-04-mapFile",
+      "tuto-05-poi"
+    ]
+  },
+  "reference": {
+    "Reference": [
+      "reference-01-site",
+      "reference-02-place",
+      "reference-03-poi",
+      "reference-04-media",
+      "reference-05-playlist",
+      "reference-06-category",
+      "reference-07-customObject",
+      "reference-08-device",
+      "reference-09-siteCalibration",
+      "reference-10-floorCalibration",
+      "reference-11-tag",
+      "reference-12-mapFile"
+    ]
+  }
+}
