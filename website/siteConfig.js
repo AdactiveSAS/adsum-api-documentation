@@ -12,7 +12,8 @@ const siteConfig = {
   title: 'Adsum REST API' /* title for your website */,
   tagline: 'A REST api designed to provide data',
   url: 'https://adactivesas.github.io/adsum-api-documentation' /* your website url */,
-  baseUrl: '/' /* base url for your project */,
+  baseUrl: '/adsum-api-documentation/' /* base url for your project */,
+  organizationName: 'AdactiveSAS', // or set an env variable ORGANIZATION_NAME
   projectName: 'adsum-api-documentation',
   headerLinks: [
     {doc: '01-authentication', label: 'Docs'},
@@ -44,7 +45,6 @@ const siteConfig = {
   // This copyright info is used in /core/Footer.js and blog rss/atom feeds.
   copyright:
     `Copyright © ${new Date().getFullYear()} Adactive SAS`,
-  organizationName: 'AdactiveSAS', // or set an env variable ORGANIZATION_NAME
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks
     theme: 'default',
