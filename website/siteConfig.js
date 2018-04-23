@@ -24,7 +24,10 @@ const siteConfig = {
   ],
   algolia: {
     apiKey: "d73c8f4661d940e5a03c1427f1ea33b3",
-    indexName: "adsum"
+    indexName: "adsum",
+    algoliaOptions: {
+      facetFilters: ["tags:rest"]
+    }
   },
   users,
   /* path to images for header/footer */
