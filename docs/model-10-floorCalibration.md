@@ -5,7 +5,7 @@ title: FloorCalibration
 
 ### What is a FloorCalibration ?
 
-A FloorCalibration is the object used to store FloorCalibration.
+A FloorCalibration is the object used to store FloorCalibration.  I THINK THIS NEEDS TO BE EXPLAINED MORE
 
 ### Main Attributes (not exhaustive)
 
