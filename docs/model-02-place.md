@@ -6,7 +6,7 @@ title: Place
 ### What is a Place ?
 
 A Place is the entity used to link to 3D Model to the Relational one.
-The Place reference location on the Map.
+The reference location of a Place on the Map:
 
 - There is a Place for each Building
 - There is a Place for each Space
@@ -39,16 +39,16 @@ Building, otherwise null
 
 - **pois**: List of all Pois associated to that Place, meaning which are
 located on that Place.
-- **custom_objects**: A list of CustomObject which could be a Picto or a
-Label used to add on the Map visual information.
-- **site**: The site it belong to
+- **custom_objects**: A list of CustomObject, which could be a Picto or a
+Label, used to add visual information on the Map .
+- **site**: The site that the map belongs to
 
 > Currently multiple CustomObject feature is not supported.
 
 ### Cascade Operations
 
-- Remove the Place will:
-    - Cascade to the associated CustomObjects
-- Un-associate a Poi will:
+- Removing the Place will:
+    - Cascade to associated CustomObjects
+- Un-associating a Poi will:
     - Remove the associated CustomObject if and only if the CustomObject
 is associated to the Poi.
