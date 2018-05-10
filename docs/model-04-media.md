@@ -15,26 +15,26 @@ Media’s specialised classes.
 
 - **id (int)**
 - **name (string)**: The media name
-- **start_at (datetime|null)**:
-- **end_at (datetime|null)**:
+- **start_at (datetime|null)**: Start date and time for displaying the media
+- **end_at (datetime|null)**: End date and time for displaying the media
 - **type (string)**: discriminator field
 
 > Complete list could be found [here](reference-04-media.md)
 
 ### Relationships
 
-- **playlists**: an ordered list of Playlist. The association class
+- **playlists**: An ordered list of Playlist. The association class
 PlaylistMediaLink is used to handle the Media **ordering inside a Playlist.**
-- **pois**:an ordered list of Media. The association class MediaPoiLink
+- **pois**: An ordered list of Media. The association class MediaPoiLink
 is used to handle the **Media ordering inside a Poi**.
 - **tags**: A list of associated Tag
-- **preview**: an optional File which is used to represents the Media as a thumbnail.
+- **preview**: An optional File which is used to represents the Media as a thumbnail.
 - **site**: The site it belong to
 
 *Note*: **MediaImage**, **MediaPdf**, **MediaVideo**, **Movie**
 specialized entity has an additional relationship
 
-- **file**: a File containing the Media data
+- **file**: A File containing the Media data
 
 ### Specialized Entities
 
