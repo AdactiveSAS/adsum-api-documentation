@@ -6,9 +6,9 @@ title: Relationships
 ![UML Relation Schema](/adsum-api-documentation/img/data_model_relations.png)
 ![UML File Relation Schema](/adsum-api-documentation/img/data_model_files.png)
 
-> Note: The effective data model will always be the one of current version
+> Note: The effective data model will always be in the current version
 as we can't manage data model depending of api version. This means if we
 decide to remove a field of an entity, setting it in a previous version
-will has no more effect.
+will have no more effect.
 
 
