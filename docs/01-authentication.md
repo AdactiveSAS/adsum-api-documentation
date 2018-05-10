@@ -5,7 +5,18 @@ title: Authentication
 
 All the API is secured using WSSE authentication. For now only devices are allowed to access our API.
 
-## What is WSSE ?
+## WSSE Authentication
+
+### Key Terms
+
+| Nonce 	| Definition 	                                                                                                                                                                                        |
+|:---------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:	|
+| Nonce 	| A unique string generated for use in the WSSE hashing algorithm and useful to help prevent against replay attacks. This value essentially represents a "request ID". 	                                |
+| Timestamp | Indicates to the authorization server the time when the request was created or signed and can thus help prevent stale requests from being used at a later time. 	                                    |
+| Key 	    | Unique authentication token used by the client as input to the hashing algorithm. The key is never transmitted in direct form with the request. 	                                                    |
+| Digest 	| A unique string produced with the nonce, timestamp and secret values and used to authoritatively sign the request. The digest is issued with API requests to prove that the client has the secret. 	|
+
+### What is WSSE ?
 
 WSSE is a family of open security specifications for web services, specifically SOAP web services. The basic premise of
 WSSE is that a request header is checked for encrypted credentials, verified using a timestamp and nonce, and
@@ -19,18 +30,9 @@ The security protocol for WSSE provides several security benefits:
 - Safeguarding against replay attacks
 - No web server configuration requirement
 
-### Key Terms
-
-| Nonce 	| Definition 	                                                                                                                                                                                        |
-|:---------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:	|
-| Nonce 	| A unique string generated for use in the WSSE hashing algorithm and useful to help prevent against reply attacks. This value essentially represents a "request ID". 	                                |
-| Timestamp | Indicates to the authorization server the time when the request was created or signed and can thus help prevent stale requests from being used at a later time. 	                                    |
-| Key 	    | Unique authentication token used by the client as input to the hashing algorithm. The key is never transmitted in direct form with the request. 	                                                    |
-| Digest 	| A unique string produced with the nonce, timestamp and secret values and used to authoritatively sign the request. The digest is issued with API requests to prove that the client has the secret. 	|
-
 ### Overview
 
-WSSE Authentication is used to prove to the backend authentication service that the client possess the API secret,
+WSSE Authentication proves to the backend authentication service that the client possess the API secret,
 without actually having to provide the key itself. Together with the "created" date time input, WSSE is a stronger
 authentication protocol when compared with basic username and password.
 
@@ -42,7 +44,7 @@ The process looks like this:
 
 1. Generate a nonce. This string needs to have a high level of entropy and it is generally safe to use a GUID generator.
 
-2. Generate a timestamp. The timestamp should be in seconds. Stale created timestamps will be rejected by the authentication
+2. Generate a timestamp. The timestamp should be in seconds. Stale timestamps will be rejected by the authentication
 service, so they should be generated using a reliable system clock.
 
 3. Generate a digest hash string using the sha1 one-way hashing algorithm. The input to the sha1 hash is simply a
@@ -105,7 +107,7 @@ X-WSSE: {{ wsseHeader }}
 ```
 
 
-### Use Case
+### Test Case
 
 In order to make sure your authorization will work as expected we **highly** recommend using the following test case to
 ensure your `X-WSSE` header will be generated properly.
