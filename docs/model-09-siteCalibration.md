@@ -3,7 +3,7 @@ id: model-09-siteCalibration
 title: SiteCalibration
 ---
 
-### What is a Device ?
+### What is SiteCalibration?
 
 A SiteCalibration is the object used to store Device specific calibration.
  Currently it contains the device position (if applicable), the default
