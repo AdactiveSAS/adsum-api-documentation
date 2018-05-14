@@ -5,7 +5,8 @@ title: FloorCalibration
 
 ### What is a FloorCalibration ?
 
-A FloorCalibration is the object used to store FloorCalibration.  I THINK THIS NEEDS TO BE EXPLAINED MORE
+A FloorCalibration is the object used to store FloorCalibration which define the default camera position for a specific
+floor.
 
 ### Main Attributes (not exhaustive)
 
