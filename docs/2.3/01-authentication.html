@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Authentication · Adsum REST API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="All the API is secured using WSSE authentication. For now only devices are allowed to access our API."/><meta property="og:title" content="Authentication · Adsum REST API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://adactivesas.github.io/adsum-api-documentation/adsum-api-documentation/index.html"/><meta property="og:description" content="All the API is secured using WSSE authentication. For now only devices are allowed to access our API."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/adsum-api-documentation/img/adsum.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script><link rel="stylesheet" href="/adsum-api-documentation/css/main.css"/></head><body class="sideNavVisible doc"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/adsum-api-documentation/"><img class="logo" src="/adsum-api-documentation/img/adsum.png" alt="Adsum REST API"/><h2 class="headerTitleWithLogo">Adsum REST API</h2></a><a href="/adsum-api-documentation/versions.html"><h3>2.3</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/adsum-api-documentation/docs/2.3/01-authentication.html" target="_self">Docs</a></li><li class=""><a href="https://api-doc.adsum.io" target="_self">Postman</a></li><li class=""><a href="/adsum-api-documentation/docs/2.3/tuto-01-authentication.html" target="_self">Examples</a></li><li class=""><a href="/adsum-api-documentation/docs/2.3/reference-01-site.html" target="_self">Reference</a></li><li class=""><a href="https://adactive.atlassian.net/servicedesk/customer/portal/1" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Getting Started</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/adsum-api-documentation/docs/2.3/01-authentication.html">Authentication</a></li></ul></div><div class="navGroup navGroupActive"><h3>Data Model</h3><ul><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-01-relations.html">Relationships</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-02-place.html">Place</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-03-poi.html">Poi</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-04-media.html">Media</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-05-playlist.html">Playlist</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-06-category.html">Category</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-07-customObject.html">CustomObject</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-08-device.html">Device</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-09-siteCalibration.html">SiteCalibration</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-10-floorCalibration.html">FloorCalibration</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-11-tag.html">Tag</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-12-mapFile.html">MapFile</a></li><li class="navListItem"><a class="navItem" href="/adsum-api-documentation/docs/2.3/model-13-feature.html">Feature (Deprecated)</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Authentication</h1></header><article><div><span><p>All the API is secured using WSSE authentication. For now only devices are allowed to access our API.</p>
+<h2><a class="anchor" aria-hidden="true" id="wsse-authentication"></a><a href="#wsse-authentication" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WSSE Authentication</h2>
+<h3><a class="anchor" aria-hidden="true" id="key-terms"></a><a href="#key-terms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key Terms</h3>
+<table>
+<thead>
+<tr><th style="text-align:center">Nonce</th><th style="text-align:center">Definition</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">Nonce</td><td style="text-align:center">A unique string generated for use in the WSSE hashing algorithm and useful to help prevent against replay attacks. This value essentially represents a &quot;request ID&quot;.</td></tr>
+<tr><td style="text-align:center">Timestamp</td><td style="text-align:center">Indicates to the authorization server the time when the request was created or signed and can thus help prevent stale requests from being used at a later time.</td></tr>
+<tr><td style="text-align:center">Key</td><td style="text-align:center">Unique authentication token used by the client as input to the hashing algorithm. The key is never transmitted in direct form with the request.</td></tr>
+<tr><td style="text-align:center">Digest</td><td style="text-align:center">A unique string produced with the nonce, timestamp and secret values and used to authoritatively sign the request. The digest is issued with API requests to prove that the client has the secret.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="what-is-wsse"></a><a href="#what-is-wsse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is WSSE ?</h3>
+<p>WSSE is a family of open security specifications for web services, specifically SOAP web services. The basic premise of
+WSSE is that a request header is checked for encrypted credentials, verified using a timestamp and nonce, and
+authenticated for the requested user using a password digest.</p>
+<h3><a class="anchor" aria-hidden="true" id="benefits"></a><a href="#benefits" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benefits</h3>
+<p>The security protocol for WSSE provides several security benefits:</p>
+<ul>
+<li>Username / Password encryption</li>
+<li>Safeguarding against replay attacks</li>
+<li>No web server configuration requirement</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h3>
+<p>WSSE Authentication proves to the backend authentication service that the client possess the API secret,
+without actually having to provide the key itself. Together with the &quot;created&quot; date time input, WSSE is a stronger
+authentication protocol when compared with basic username and password.</p>
+<p>The authentication process expects a properly formed <code>X-WSSE</code> header sent with every request. The values of this header
+will be unique to every request and cannot be re-used. It also expects a constant <code>AUTHORIZATION</code> header the following
+value <code>WSSE profile=&quot;UsernameToken&quot;</code></p>
+<p>The process looks like this:</p>
+<ol>
+<li><p>Generate a nonce. This string needs to have a high level of entropy and it is generally safe to use a GUID generator.</p></li>
+<li><p>Generate a timestamp. The timestamp should be in seconds. Stale timestamps will be rejected by the authentication
+service, so they should be generated using a reliable system clock.</p></li>
+<li><p>Generate a digest hash string using the sha1 one-way hashing algorithm. The input to the sha1 hash is simply a
+concatenation of the nonce, created timestamp, and the API secret. Please note that the sha1 output should be hexadecimal, not binary.</p></li>
+<li><p>Assemble the X-WSSE header using the following format:</p></li>
+</ol>
+<pre><code class="hljs">X-WSSE: UsernameToken <span class="hljs-attribute">Username</span>=<span class="hljs-string">"username"</span>, <span class="hljs-attribute">PasswordDigest</span>=<span class="hljs-string">"password_digest"</span>, <span class="hljs-attribute">Nonce</span>=<span class="hljs-string">"nonce"</span>, <span class="hljs-attribute">Created</span>=<span class="hljs-string">"created_timestamp"</span>
+</code></pre>
+<ol start="5">
+<li>Add both <code>X-WSSE</code> and <code>AUTHORIZATION</code> header to your request.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<h3><a class="anchor" aria-hidden="true" id="get-api-credentials"></a><a href="#get-api-credentials" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get API credentials</h3>
+<blockquote>
+<p>Please note that you need to be admin on your site to get the credentials.</p>
+</blockquote>
+<p>Download the JSON configuration file as specified in <a href="http://adactive.com/help/docs/administration/get-device-credentials/">studio documentation</a></p>
+<p>You should have something like this:</p>
+<pre><code class="hljs css languages- json">{
+    ...
+    "api": {
+        "endpoint": "https://api.adsum.io",
+        "site": 113,
+        "username": "156-device",
+        "key": "b05bab1844befc679f957ea"
+    },
+    ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="process"></a><a href="#process" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process</h3>
+<ol>
+<li><p>Generate a <code>nonce</code> variable containing a random string.</p></li>
+<li><p>Generate a <code>timestamp</code> variable containing the current timestamp in seconds.</p></li>
+<li><p>Generate a <code>rawDigest</code> variable by concatenating <code>nonce</code>, <code>timestamp</code> and <code>key</code> variables.</p></li>
+<li><p>Generate a <code>digest</code> variable by encrypting the <code>rawDigest</code> using the <strong>SHA1</strong> algorithm with a string hexadecimal
+output.</p></li>
+<li><p>Assemble the X-WSSE header into the variable <code>wsseHeader</code> using the following format:</p></li>
+</ol>
+<pre><code class="hljs">UsernameToken <span class="hljs-attribute">Username</span>=<span class="hljs-string">"{{ username }}"</span>, <span class="hljs-attribute">PasswordDigest</span>=<span class="hljs-string">"{{ digest }}"</span>, <span class="hljs-attribute">Nonce</span>=<span class="hljs-string">"{{ nonce }}"</span>, <span class="hljs-attribute">Created</span>=<span class="hljs-string">"{{ timestamp }}"</span>
+</code></pre>
+<ol start="6">
+<li>Send your request with both following headers:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-string">AUTHORIZATION:</span> WSSE profile=<span class="hljs-string">"UsernameToken"</span>
+X-<span class="hljs-string">WSSE:</span> {{ wsseHeader }}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="test-case"></a><a href="#test-case" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test Case</h3>
+<p>In order to make sure your authorization will work as expected we <strong>highly</strong> recommend using the following test case to
+ensure your <code>X-WSSE</code> header will be generated properly.</p>
+<ul>
+<li>key: <code>cb5b17a83881b35a2dffde2fed6921f0</code></li>
+<li>username: <code>13-device</code></li>
+<li>nonce: <code>3ab47f06117b768111bea41d8525ac64</code></li>
+<li>timestamp: <code>1456738274</code></li>
+<li>rawDigest: <code>3ab47f06117b768111bea41d8525ac641456738274cb5b17a83881b35a2dffde2fed6921f0</code></li>
+<li>digest: <code>f076ab625fc3c368a5f8537d236c5a452dfc56d8</code></li>
+<li>wsseHeader: <code>UsernameToken Username=&quot;13-device&quot;, PasswordDigest=&quot;f076ab625fc3c368a5f8537d236c5a452dfc56d8&quot;, Nonce=&quot;3ab47f06117b768111bea41d8525ac64&quot;, Created=&quot;1456738274&quot;</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="potential-errors"></a><a href="#potential-errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Potential Errors</h3>
+<table>
+<thead>
+<tr><th style="text-align:center">HTTP code</th><th style="text-align:center">Body</th><th>Cause</th><th>Resolution</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;Authorization header not found.&quot;}}</code></td><td>Missing <code>AUTHORIZATION</code> header</td><td>Add header <code>AUTHORIZATION: WSSE profile=&quot;UsernameToken&quot;</code>.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;Authorization header is not valid: must be 'WSSE profile=\&quot;UsernameToken\&quot;' &quot;}}</code></td><td>Invalid <code>AUTHORIZATION</code> header</td><td>Add header <code>AUTHORIZATION: WSSE profile=&quot;UsernameToken&quot;</code>.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;X-WSSE header not found.&quot;}}</code></td><td>Missing <code>X-WSSE</code> header</td><td>Add the <code>X-WSSE</code> header formed as explained previously.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;X-WSSE header must match \/UsernameToken Username=\&quot;([^\&quot;]+)\&quot;, PasswordDigest=\&quot;([^\&quot;]+)\&quot;, Nonce=\&quot;([^\&quot;]+)\&quot;, Created=\&quot;([^\&quot;]+)\&quot;\/&quot;}}</code></td><td>Malformed <code>X-WSSE</code> header</td><td>Ensure your <code>X-WSSE</code> header match the regex <code>\/UsernameToken Username=\&quot;([^\&quot;]+)\&quot;, PasswordDigest=\&quot;([^\&quot;]+)\&quot;, Nonce=\&quot;([^\&quot;]+)\&quot;, Created=\&quot;([^\&quot;]+)\&quot;\/</code>.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;Username could not be found.&quot;}}</code></td><td>Invalid Username</td><td>Make sure your device id exists and username is properly generated according as explained previously.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;Provided API Key is invalid for given device&quot;}}</code></td><td>Either malformed digest or invalid key</td><td>Make sure your api key is valid for the given device. Then ensure your digest is properly generated (SHA1 algorithm and hexadecimal string). You may check the use case to ensure you have to same result using your implementation.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;Request is out-of-date: it was built at 1478187026 so it was valid since 1478183426 and until 1478190626 (current 1478273599).&quot;}}</code></td><td>Invalid timestamp</td><td>Make sure your timestamp is valid and your clock is properly synchronized. If it's not possible to synchronize your clock, you may consider using the current time retrieve by the API.</td></tr>
+<tr><td style="text-align:center">403</td><td style="text-align:center"><code>{&quot;errors&quot;:{&quot;Authentication&quot;:&quot;Nonce 42 previously used at 1478273507388.&quot;}}</code></td><td>Invalid nonce, it has been already used.</td><td>Make sure your nonce use a confident pseudo-random algorithm with a high entropy to prevent nonce conflict.</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="model-01-relations.html">Relationships →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/adsum-api-documentation/" class="nav-home"><img src="/adsum-api-documentation/img/adsum.png" alt="Adsum REST API" width="66" height="58"/></a><div><h5>About US</h5><p>Adactive creates and publishes digital solutions for shopper marketing experiences and innovative location-based services.<a href="https://adactive.com"><i class="fas fa-link"></i> https://adactive.com</a><a href="mailto:contact@adactive.com"><i class="fas fa-envelope"></i> contact@adactive.com</a><a href="https://www.linkedin.com/company/adactive-sas/"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="https://twitter.com/adactivefr"><i class="fab fa-twitter"></i> Twitter</a><a href="https://www.facebook.com/Adactive-124871357587753/"><i class="fab fa-facebook"></i> Facebook</a><a href="https://www.youtube.com/user/adactivefr"><i class="fab fa-youtube"></i> Youtube</a></p></div><div><h5>Headquarter</h5><div><p><i class="fas fa-map"></i> 50 rue Klock - 92110 Clichy, France</p><p><i class="fas fa-phone"></i> +33 (0)6 16 17 50 69</p></div></div><div><h5>Asia office</h5><div><p><i class="fas fa-map"></i> 750A North Bridge Road - 198718 Singapore</p><p><i class="fas fa-linkedin"></i> +65 9082 9380</p></div></div></section><section class="copyright">Copyright © 2018 Adactive SAS</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: 'd73c8f4661d940e5a03c1427f1ea33b3',
+                indexName: 'adsum',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {"facetFilters":["tags:rest"]}
+              });
+            </script></body></html>
