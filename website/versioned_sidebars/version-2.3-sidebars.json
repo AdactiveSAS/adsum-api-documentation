@@ -1,0 +1,47 @@
+{
+  "version-2.3-docs": {
+    "Getting Started": [
+      "version-2.3-01-authentication"
+    ],
+    "Data Model": [
+      "version-2.3-model-01-relations",
+      "version-2.3-model-02-place",
+      "version-2.3-model-03-poi",
+      "version-2.3-model-04-media",
+      "version-2.3-model-05-playlist",
+      "version-2.3-model-06-category",
+      "version-2.3-model-07-customObject",
+      "version-2.3-model-08-device",
+      "version-2.3-model-09-siteCalibration",
+      "version-2.3-model-10-floorCalibration",
+      "version-2.3-model-11-tag",
+      "version-2.3-model-12-mapFile",
+      "version-2.3-model-13-feature"
+    ]
+  },
+  "version-2.3-examples": {
+    "Examples": [
+      "version-2.3-tuto-01-authentication",
+      "version-2.3-tuto-02-category",
+      "version-2.3-tuto-03-file",
+      "version-2.3-tuto-04-mapFile",
+      "version-2.3-tuto-05-poi"
+    ]
+  },
+  "version-2.3-reference": {
+    "Reference": [
+      "version-2.3-reference-01-site",
+      "version-2.3-reference-02-place",
+      "version-2.3-reference-03-poi",
+      "version-2.3-reference-04-media",
+      "version-2.3-reference-05-playlist",
+      "version-2.3-reference-06-category",
+      "version-2.3-reference-07-customObject",
+      "version-2.3-reference-08-device",
+      "version-2.3-reference-09-siteCalibration",
+      "version-2.3-reference-10-floorCalibration",
+      "version-2.3-reference-11-tag",
+      "version-2.3-reference-12-mapFile"
+    ]
+  }
+}
