@@ -1,6 +1,7 @@
 ---
-id: model-04-media
+id: version-2.3-model-04-media
 title: Media
+original_id: model-04-media
 ---
 
 ### What is a Media ?

@@ -1,6 +1,7 @@
 ---
-id: model-02-place
+id: version-2.3-model-02-place
 title: Place
+original_id: model-02-place
 ---
 
 ### What is a Place ?
@@ -26,8 +27,6 @@ the site then it will be “-1” by convention.
 otherwise null
 - **building_id (int|null)**: The Building#id if it’s associated to a
 Building, otherwise null
-- **path_node_id (int|null)**: The checkpoint or floor access id otherwise null,
-otherwise null
 - **position (object)**: The place position relative to the Building
 (associated to a building), Space (associated to a Space), Floor
 (on a Floor) or Site (on the Site):

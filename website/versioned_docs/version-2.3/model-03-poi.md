@@ -1,6 +1,7 @@
 ---
-id: model-03-poi
+id: version-2.3-model-03-poi
 title: Poi
+original_id: model-03-poi
 ---
 
 ### What is a Poi ?

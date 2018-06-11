@@ -1,6 +1,7 @@
 ---
-id: reference-02-place
+id: version-2.3-reference-02-place
 title: Place
+original_id: reference-02-place
 ---
 
 ## CRUD
@@ -25,7 +26,6 @@ title: Place
 | floor_id    | int                | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Floor identifier                                                                 |
 | id          | int                | ![true][trueIcon]   | ![false][falseIcon] | ![false][falseIcon] | Identifier                                                                       |
 | name        | string             | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | Name                                                                             |
-| path_node_id | int               | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | If the Place correspond to a path node, here come the path node identifier       |
 | pois        | array              | ![false][falseIcon] | ![false][falseIcon] | ![false][falseIcon] | List of associated POIs                                                          |
 | pois[]      | Poi#id             | ![n/a][naIcon]      | ![false][falseIcon] | ![false][falseIcon] | Associated POI identifier                                                        |
 | shape_id    | int                | ![false][falseIcon] | ![true][trueIcon]   | ![false][falseIcon] | If the Place correspond to a shape, here come the shape identifier               |
@@ -66,7 +66,6 @@ title: Place
 | name         | Data   | string  | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] | Not empty string              |
 | pois         | Data   | array   | ![false][falseIcon] | ![false][falseIcon] | []             |                               |
 | pois[]       | Data   | Poi#id  | ![false][falseIcon] | ![n/a][naIcon]      | ![n/a][naIcon] | Valid Poi#id on same site     |
-| path_node_id | Data   | int     | ![true][trueIcon]   | ![false][falseIcon] | null           |                               |
 | shape_id     | Data   | int     | ![true][trueIcon]   | ![false][falseIcon] | null           |                               |
 | position     | Data   | object  | ![false][falseIcon] | ![true][trueIcon]   | ![n/a][naIcon] |                               |
 | position.x   | Data   | float   | ![false][falseIcon] | ![n/a][naIcon]      | ![n/a][naIcon] |                               |
@@ -96,7 +95,6 @@ title: Place
 | pois         | Data   | array   | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                               |
 | pois[]       | Data   | Poi#id  | ![false][falseIcon] | ![n/a][naIcon]      | ![n/a][naIcon]  | Valid Poi#id on same site     |
 | shape_id     | Data   | int     | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                               |
-| path_node_id | Data   | int     | ![true][trueIcon]   | ![false][falseIcon] | Preserves value |                               |
 | position     | Data   | object  | ![false][falseIcon] | ![false][falseIcon] | Preserves value |                               |
 | position.x   | Data   | float   | ![false][falseIcon] | ![n/a][naIcon]      | ![n/a][naIcon]  |                               |
 | position.y   | Data   | float   | ![false][falseIcon] | ![n/a][naIcon]      | ![n/a][naIcon]  |                               |

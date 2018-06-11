@@ -1,6 +1,7 @@
 ---
-id: reference-02-place
+id: version-2.4-reference-02-place
 title: Place
+original_id: reference-02-place
 ---
 
 ## CRUD

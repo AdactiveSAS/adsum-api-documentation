@@ -1,6 +1,7 @@
 ---
-id: model-07-customObject
+id: version-2.3-model-07-customObject
 title: CustomObject
+original_id: model-07-customObject
 ---
 
 ### What is a CustomObject ?

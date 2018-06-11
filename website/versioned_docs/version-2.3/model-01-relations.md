@@ -1,6 +1,7 @@
 ---
-id: model-01-relations
+id: version-2.3-model-01-relations
 title: Relationships
+original_id: model-01-relations
 ---
 
 ![UML Relation Schema](/adsum-api-documentation/img/data_model_relations.png)

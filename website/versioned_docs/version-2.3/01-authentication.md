@@ -1,6 +1,7 @@
 ---
-id: 01-authentication
+id: version-2.3-01-authentication
 title: Authentication
+original_id: 01-authentication
 ---
 
 All the API is secured using WSSE authentication. For now only devices are allowed to access our API.
