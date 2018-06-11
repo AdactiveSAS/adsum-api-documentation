@@ -1,6 +1,7 @@
 ---
-id: model-02-place
+id: version-2.4-model-02-place
 title: Place
+original_id: model-02-place
 ---
 
 ### What is a Place ?
