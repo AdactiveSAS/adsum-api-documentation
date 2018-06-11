@@ -1,0 +1,48 @@
+{
+  "version-2.4-docs": {
+    "Getting Started": [
+      "version-2.4-Changelog",
+      "version-2.4-01-authentication"
+    ],
+    "Data Model": [
+      "version-2.4-model-01-relations",
+      "version-2.4-model-02-place",
+      "version-2.4-model-03-poi",
+      "version-2.4-model-04-media",
+      "version-2.4-model-05-playlist",
+      "version-2.4-model-06-category",
+      "version-2.4-model-07-customObject",
+      "version-2.4-model-08-device",
+      "version-2.4-model-09-siteCalibration",
+      "version-2.4-model-10-floorCalibration",
+      "version-2.4-model-11-tag",
+      "version-2.4-model-12-mapFile",
+      "version-2.4-model-13-feature"
+    ]
+  },
+  "version-2.4-examples": {
+    "Examples": [
+      "version-2.4-tuto-01-authentication",
+      "version-2.4-tuto-02-category",
+      "version-2.4-tuto-03-file",
+      "version-2.4-tuto-04-mapFile",
+      "version-2.4-tuto-05-poi"
+    ]
+  },
+  "version-2.4-reference": {
+    "Reference": [
+      "version-2.4-reference-01-site",
+      "version-2.4-reference-02-place",
+      "version-2.4-reference-03-poi",
+      "version-2.4-reference-04-media",
+      "version-2.4-reference-05-playlist",
+      "version-2.4-reference-06-category",
+      "version-2.4-reference-07-customObject",
+      "version-2.4-reference-08-device",
+      "version-2.4-reference-09-siteCalibration",
+      "version-2.4-reference-10-floorCalibration",
+      "version-2.4-reference-11-tag",
+      "version-2.4-reference-12-mapFile"
+    ]
+  }
+}

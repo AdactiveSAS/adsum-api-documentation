@@ -5,6 +5,7 @@
     "previous": "Previous",
     "tagline": "A REST api designed to provide data",
     "01-authentication": "Authentication",
+    "Changelog": "CHANGELOG",
     "model-01-relations": "Relationships",
     "model-02-place": "Place",
     "model-03-poi": "Poi",

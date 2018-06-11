@@ -1,6 +1,7 @@
 {
   "docs": {
     "Getting Started": [
+      "Changelog",
       "01-authentication"
     ],
     "Data Model": [
